@@ -151,36 +151,28 @@
                       />
                     </div>
                     <h4 class="card-title">
-                      Carla Hortensia
+                      Sean Lee
                       <br />
                       <small class="card-description text-muted"
-                        >Designer</small
+                        >Scrub Master</small
                       >
                     </h4>
 
                     <md-card-content>
                       <p class="card-description">
-                        You can write here details about one of your team
-                        members. You can give more details about what they do.
-                        Feel free to add some <a href="#">links</a> for people
-                        to be able to follow them outside the site.
+                        I saw Red vent.
                       </p>
                     </md-card-content>
 
                     <md-card-actions class="text-center">
                       <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
+                        href="https://www.linkedin.com/in/seanleeleelee/"
                         class="md-just-icon md-simple"
                       >
                         <i class="fab fa-linkedin"></i>
                       </md-button>
                     </md-card-actions>
+
                   </md-card>
                 </div>
               </div>
@@ -189,7 +181,7 @@
                   <md-card class="md-card-plain">
                     <div class="md-layout-item md-size-50 mx-auto">
                       <img
-                        :src="teamImg3"
+                        :src="teamImg4"
                         alt="Thumbnail Image"
                         class="img-raised rounded-circle img-fluid"
                       />
@@ -258,7 +250,7 @@ export default {
     },
     teamImg3: {
       type: String,
-      default: require("@/assets/img/faces/kendall.jpg")
+      default: require("@/assets/img/faces/user2.jpg")
     },
     teamImg4: {
       type: String,
