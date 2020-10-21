@@ -8,7 +8,7 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        <h3 class="md-title">JoblessGoWhere</h3>
+        <p class="md-title">JoblessGoWhere</p>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -194,3 +194,6 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>
