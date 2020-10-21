@@ -5,7 +5,11 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
-import QuizLifestage from "./views/QuizLifestage.vue";
+
+import MainFooter from "./layout/MainFooter.vue";
+import SignUp from "./views/SignUp.vue";
+import LoginPage from "./views/LoginPage.vue";
+
 
 Vue.use(Router);
 
@@ -24,6 +28,24 @@ export default new Router({
       path: "/index",
       name: "index",
       components: { default: Index, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/SignUp",
+      name: "SignUp",
+      components: { default: Landing, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/LoginPage",
+      name: "LoginPage",
+      components: { default: Landing, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

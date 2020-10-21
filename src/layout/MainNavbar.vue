@@ -24,9 +24,27 @@
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
-              <md-list-item href="/index" target="_blank" v-if="showDownload">
-                <i class="material-icons">content_paste</i>
+
+              <md-list-item
+               href="javascript:void(0)"
+                @click="scrollToElement()"
+                v-if="showDownload"
+              > 
+                <md-icon>info_outline</md-icon>
                 <p>About</p>
+                
+              </md-list-item>
+
+              <md-list-item
+                href="/SignUp"
+                target="_blank"
+                v-if="showDownload"
+              >
+
+              <md-list-item href="/index" target="_blank" v-if="showDownload">
+
+                <i class="material-icons">content_paste</i>
+                <p>Signup</p>
               </md-list-item>
 
               <md-list-item
