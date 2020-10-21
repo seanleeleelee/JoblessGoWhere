@@ -12,18 +12,23 @@
               <p slot="description" class="description">One click away to unlocking your full potential</p>
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
-                <label>Username / Email ...</label>
+                <label>First Name...</label>
                 <md-input v-model="firstname"></md-input>
               </md-field>
-              
+              <md-field class="md-form-group" slot="inputs">
+                <md-icon>email</md-icon>
+                <label>Email...</label>
+                <md-input v-model="email" type="email"></md-input>
+              </md-field>
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>Password...</label>
                 <md-input v-model="password"></md-input>
               </md-field>
               <md-button slot="footer" class="md-simple md-success md-lg">
-                Login
+                Get Started
               </md-button>
+              
             </login-card>
           </div>
         </div>
