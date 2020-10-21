@@ -29,9 +29,19 @@
                 href="https://demos.creative-tim.com/vue-material-kit/documentation/"
                 target="_blank"
                 v-if="showDownload"
+              > 
+                <md-icon>info_outline</md-icon>
+                <p>About</p>
+                
+              </md-list-item>
+
+              <md-list-item
+                href="/SignUp"
+                target="_blank"
+                v-if="showDownload"
               >
                 <i class="material-icons">content_paste</i>
-                <p>About</p>
+                <p>Signup</p>
               </md-list-item>
 
               <md-list-item
