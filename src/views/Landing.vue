@@ -187,39 +187,19 @@
                       />
                     </div>
                     <h4 class="card-title">
-                      Kendall Jenner
+                      Ashley Ho
                       <br />
-                      <small class="card-description text-muted">Model</small>
+                      <small class="card-description text-muted">Imposter</small>
                     </h4>
 
                     <md-card-content>
                       <p class="card-description">
-                        You can write here details about one of your team
-                        members. You can give more details about what they do.
-                        Feel free to add some <a href="#">links</a> for people
-                        to be able to follow them outside the site.
+                        Red sus.
                       </p>
                     </md-card-content>
 
                     <md-card-actions class="text-center">
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-facebook-square"></i>
-                      </md-button>
+
                     </md-card-actions>
                   </md-card>
                 </div>
@@ -254,7 +234,7 @@ export default {
     },
     teamImg4: {
       type: String,
-      default: require("@/assets/img/faces/kendall.jpg")
+      default: require("@/assets/img/faces/user3.jpg")
     }
   },
   computed: {
