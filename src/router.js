@@ -13,17 +13,17 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "index",
-      components: { default: Index, header: MainNavbar },
+      name: "landing",
+      components: { default: Landing, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
     },
     {
-      path: "/landing",
-      name: "landing",
-      components: { default: Landing, header: MainNavbar },
+      path: "/index",
+      name: "index",
+      components: { default: Index, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -63,5 +63,5 @@ export default new Router({
       return { x: 0, y: 0 };
     }
   },
-  mode:"history"
+  mode: "history"
 });

@@ -24,12 +24,7 @@
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
-
-              <md-list-item
-                href="https://demos.creative-tim.com/vue-material-kit/documentation/"
-                target="_blank"
-                v-if="showDownload"
-              >
+              <md-list-item href="/index" target="_blank" v-if="showDownload">
                 <i class="material-icons">content_paste</i>
                 <p>About</p>
               </md-list-item>
@@ -136,7 +131,7 @@ export default {
   },
   computed: {
     showDownload() {
-      const excludedRoutes = ["login",  "profile"];
+      const excludedRoutes = ["login", "profile"];
       return excludedRoutes.every(r => r !== this.$route.name);
     }
   },

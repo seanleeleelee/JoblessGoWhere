@@ -2,9 +2,9 @@
     <div class="wrapper">
         <parallax class="section header-filter" :style="headerStyle">
         </parallax>
-        <div class="main main-raised">
-            <div class="section">
-                <div class="container">
+        <div class= "main main-raised">
+            <div class=  "section">
+                <div class= "container">
                     <div class="md-layout">
                         <div 
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
