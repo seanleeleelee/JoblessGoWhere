@@ -5,8 +5,7 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
-
-import MainFooter from "./layout/MainFooter.vue";
+/*import MainFooter from "./layout/MainFooter.vue";*/
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
 
@@ -36,7 +35,7 @@ export default new Router({
     {
       path: "/SignUp",
       name: "SignUp",
-      components: { default: Landing, header: MainNavbar, footer: MainFooter },
+      components: { default: Landing, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -45,7 +44,7 @@ export default new Router({
     {
       path: "/LoginPage",
       name: "LoginPage",
-      components: { default: Landing, header: MainNavbar, footer: MainFooter },
+      components: { default: Landing, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
