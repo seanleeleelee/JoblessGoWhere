@@ -7,6 +7,7 @@ import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
+import QuizLifestage from "./views/QuizLifestage.vue"
 
 
 Vue.use(Router);
@@ -83,5 +84,5 @@ export default new Router({
       return { x: 0, y: 0 };
     }
   },
-  mode: "history"
+  mode:"history"
 });

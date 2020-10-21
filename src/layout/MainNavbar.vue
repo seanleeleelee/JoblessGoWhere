@@ -25,38 +25,24 @@
           <div class="md-collapse-wrapper">
             <md-list>
 
-              <md-list-item
-               href="javascript:void(0)"
-                @click="scrollToElement()"
-                v-if="showDownload"
-              > 
+              <md-list-item href="/"> 
                 <md-icon>info_outline</md-icon>
                 <p>About</p>
                 
               </md-list-item>
 
-              <md-list-item
-                href="/SignUp"
-                target="_blank"
-                v-if="showDownload"
-              >
-
-              <md-list-item href="/index" target="_blank" v-if="showDownload">
+              <md-list-item href="/index" >
 
                 <i class="material-icons">content_paste</i>
                 <p>Signup</p>
               </md-list-item>
 
-              <md-list-item
-                href="javascript:void(0)"
-                @click="scrollToElement()"
-                v-if="showDownload"
-              >
+              <md-list-item href="/LoginPage">
                 <i class="material-icons">cloud_download</i>
                 <p>Login</p>
               </md-list-item>
 
-              <li class="md-list-item" v-else>
+              <li class="md-list-item" >
                 <a
                   href="javascript:void(0)"
                   class="md-list-item-router md-list-item-container md-button-clean dropdown"
@@ -73,13 +59,13 @@
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>
-                          <a href="/landing">
+                          <a href="/">
                             <i class="material-icons">view_day</i>
                             <p>Landing Page</p>
                           </a>
                         </li>
                         <li>
-                          <a href="/login">
+                          <a href="/LoginPage">
                             <i class="material-icons">fingerprint</i>
                             <p>Login Page</p>
                           </a>
@@ -147,12 +133,12 @@ export default {
       toggledClass: false
     };
   },
-  computed: {
+  /*computed: {
     showDownload() {
       const excludedRoutes = ["login", "profile"];
       return excludedRoutes.every(r => r !== this.$route.name);
     }
-  },
+  },*/
   methods: {
     bodyClick() {
       let bodyClick = document.getElementById("bodyClick");
