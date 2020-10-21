@@ -7,24 +7,34 @@
             class="md-layout-item md-size-33 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
           >
             <login-card header-color="green">
-              <h4 slot="title" class="card-title">Sign up</h4>
-              
+              <h4 slot="title" class="card-title">Get started for free!</h4>
+  
               <p slot="description" class="description">One click away to unlocking your full potential</p>
+
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
-                <label>First Name...</label>
+                <label>Username...</label>
                 <md-input v-model="firstname"></md-input>
               </md-field>
+
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>email</md-icon>
                 <label>Email...</label>
                 <md-input v-model="email" type="email"></md-input>
               </md-field>
+
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>Password...</label>
                 <md-input v-model="password"></md-input>
               </md-field>
+
+              <md-field class="md-form-group" slot="inputs">
+                <md-icon>lock_outline</md-icon>
+                <label>Confirm Password...</label>
+                <md-input v-model="conf_password"></md-input>
+              </md-field>
+
               <md-button slot="footer" class="md-simple md-success md-lg">
                 Get Started
               </md-button>

@@ -31,7 +31,7 @@
                 
               </md-list-item>
 
-              <md-list-item href="/index" >
+              <md-list-item href="/SignUp" >
 
                 <i class="material-icons">content_paste</i>
                 <p>Signup</p>
