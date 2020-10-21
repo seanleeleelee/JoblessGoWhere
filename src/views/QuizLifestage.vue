@@ -123,15 +123,15 @@ export default {
         },
         graduateImg2: {
             type: String,
-            default: require("@/assets/img/faces/christian.jpg")
+            default: require("@/assets/img/faces/quiz/graduate.jpeg")
         },
         industryImg3: {
             type: String,
-            default: require("@/assets/img/faces/kendall.jpg")
+            default: require("@/assets/img/faces/quiz/industry.jpg")
         },
         midCareerImg4: {
             type: String,
-            default: require("@/assets/img/faces/kendall.jpg")
+            default: require("@/assets/img/faces/quiz/midcareer.jpg")
         }
     },
     computed: {
