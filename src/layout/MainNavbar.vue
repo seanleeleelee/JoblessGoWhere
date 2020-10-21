@@ -8,7 +8,7 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        <h3 class="md-title">JoblessGoWhere</h3>
+        <p class="md-title">JoblessGoWhere</p>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -26,8 +26,8 @@
             <md-list>
 
               <md-list-item
-                href="https://demos.creative-tim.com/vue-material-kit/documentation/"
-                target="_blank"
+               href="javascript:void(0)"
+                @click="scrollToElement()"
                 v-if="showDownload"
               > 
                 <md-icon>info_outline</md-icon>
@@ -40,6 +40,9 @@
                 target="_blank"
                 v-if="showDownload"
               >
+
+              <md-list-item href="/index" target="_blank" v-if="showDownload">
+
                 <i class="material-icons">content_paste</i>
                 <p>Signup</p>
               </md-list-item>
@@ -146,7 +149,7 @@ export default {
   },
   computed: {
     showDownload() {
-      const excludedRoutes = ["login",  "profile"];
+      const excludedRoutes = ["login", "profile"];
       return excludedRoutes.every(r => r !== this.$route.name);
     }
   },
@@ -204,3 +207,6 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>

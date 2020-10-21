@@ -5,9 +5,11 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
+
 import MainFooter from "./layout/MainFooter.vue";
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
+
 
 Vue.use(Router);
 
@@ -15,17 +17,17 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "index",
-      components: { default: Index, header: MainNavbar, footer: MainFooter },
+      name: "landing",
+      components: { default: Landing, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
     },
     {
-      path: "/landing",
-      name: "landing",
-      components: { default: Landing, header: MainNavbar, footer: MainFooter },
+      path: "/index",
+      name: "index",
+      components: { default: Index, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -52,7 +54,7 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      components: { default: Login, header: MainNavbar, footer: MainFooter },
+      components: { default: Login, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 }
       }
@@ -60,7 +62,16 @@ export default new Router({
     {
       path: "/profile",
       name: "profile",
-      components: { default: Profile, header: MainNavbar, footer: MainFooter },
+      components: { default: Profile, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/quiz/lifestage",
+      name: "quizlifestage",
+      components: { default: QuizLifestage, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -74,5 +85,5 @@ export default new Router({
       return { x: 0, y: 0 };
     }
   },
-  mode:"history"
+  mode: "history"
 });

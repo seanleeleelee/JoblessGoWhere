@@ -235,27 +235,6 @@
               </div>
             </div>
           </div>
-
-          <div class="sharing-area text-center">
-            <div class="md-layout">
-              <div class="md-layout-item">
-                <h3>Thank you for supporting us!</h3>
-              </div>
-            </div>
-
-            <md-button class="md-twitter"
-              ><i class="fab fa-twitter"></i>Tweet</md-button
-            >
-            <md-button class="md-facebook"
-              ><i class="fab fa-facebook-square"></i> Share</md-button
-            >
-            <md-button class="md-google"
-              ><i class="fab fa-google-plus"></i> Share</md-button
-            >
-            <md-button class="md-github"
-              ><i class="fab fa-github"></i> Star</md-button
-            >
-          </div>
         </div>
       </div>
     </div>

@@ -265,13 +265,6 @@ export default {
       default: require("@/assets/img/faces/kendall.jpg")
     }
   },
-  data() {
-    return {
-      name: null,
-      email: null,
-      message: null
-    };
-  },
   computed: {
     headerStyle() {
       return {
