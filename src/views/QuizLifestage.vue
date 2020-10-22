@@ -103,7 +103,6 @@
                             <md-button
                                 href="/quiz/industry"
                                 class="md-success md-lg"
-                                target="_blank"
                             >
                                 <i class="fas fa-play"></i> 
                                 Next

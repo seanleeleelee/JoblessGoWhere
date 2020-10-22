@@ -14,7 +14,6 @@
             <md-button
               href="/quiz/lifestage"
               class="md-success md-lg"
-              target="_blank"
             >
               <i class="fas fa-play"></i> 
               Get Started
