@@ -31,12 +31,6 @@
                 
               </md-list-item>
 
-              <md-list-item href="/SignUp" >
-
-                <i class="material-icons">content_paste</i>
-                <p>Signup</p>
-              </md-list-item>
-
               <md-list-item href="/LoginPage">
                 <i class="material-icons">cloud_download</i>
                 <p>Login</p>
