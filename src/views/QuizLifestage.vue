@@ -33,7 +33,7 @@
                                             </md-card>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="md-layout-item md-medium-size-25 md-small-size-100">
                                         <div class="lifestage">
                                         <md-card class="md-card-plain">
@@ -59,7 +59,7 @@
                                     <div class="md-layout-item md-medium-size-25 md-small-size-100">
                                         <div class="lifestage">
                                         <md-card class="md-card-plain">
-                                            <div class="md-layout-item md-size-50 mx-auto">
+                                            <div class="md-layout-item md-size-100 mx-auto">
                                             <img
                                                 :src="industryImg3"
                                                 alt="Thumbnail Image"
@@ -80,7 +80,7 @@
                                     <div class="md-layout-item md-medium-size-25 md-small-size-100">
                                         <div class="lifestage">
                                         <md-card class="md-card-plain">
-                                            <div class="md-layout-item md-size-50 mx-auto">
+                                            <div class="md-layout-item md-size-100 mx-auto">
                                             <img
                                                 :src="midCareerImg4"
                                                 alt="Thumbnail Image"
@@ -107,6 +107,8 @@
                                 <i class="fas fa-play"></i> 
                                 Next
                             </md-button>
+
+                            
                         </div>
                     </div>  
                 </div>
