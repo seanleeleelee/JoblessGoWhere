@@ -8,6 +8,7 @@ import MainNavbar from "./layout/MainNavbar.vue";
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
 import QuizLifestage from "./views/QuizLifestage.vue"
+import QuizIndustry from "./views/QuizIndustry.vue"
 
 
 Vue.use(Router);
@@ -71,6 +72,15 @@ export default new Router({
       path: "/quiz/lifestage",
       name: "quizlifestage",
       components: { default: QuizLifestage, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/quiz/industry",
+      name: "quizindustry",
+      components: { default: QuizIndustry, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

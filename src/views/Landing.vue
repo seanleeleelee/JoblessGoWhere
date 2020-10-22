@@ -166,7 +166,7 @@
 
                     <md-card-actions class="text-center">
                       <md-button
-                        href="https://www.linkedin.com/in/seanleeleelee/"
+                        href="https://www.linkedin.com/in/sean-lee-ren-yi/"
                         class="md-just-icon md-simple"
                       >
                         <i class="fab fa-linkedin"></i>
