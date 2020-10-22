@@ -9,7 +9,7 @@ import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
 import QuizLifestage from "./views/QuizLifestage.vue"
 import QuizIndustry from "./views/QuizIndustry.vue"
-
+import RecommendedPage from "./views/RecommendedPage.vue"
 
 Vue.use(Router);
 
@@ -81,6 +81,15 @@ export default new Router({
       path: "/quiz/industry",
       name: "quizindustry",
       components: { default: QuizIndustry, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/RecommendedPage",
+      name: "RecommendedPage",
+      components: { default: RecommendedPage, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
