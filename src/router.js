@@ -7,10 +7,12 @@ import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
-import QuizLifestage from "./views/QuizLifestage.vue";
-import QuizIndustry from "./views/QuizIndustry.vue";
+import QuizLifestage from "./views/QuizLifestage.vue"
+import QuizIndustry from "./views/QuizIndustry.vue"
+import RecommendedPage from "./views/RecommendedPage.vue"
 import QuizLoginHeader from "./layout/QuizLoginHeader.vue"
 import AccountsNavbar from "./layout/AccountsNavbar.vue"
+
 
 Vue.use(Router);
 
@@ -86,7 +88,17 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    }
+    },
+    {
+      path: "/RecommendedPage",
+      name: "RecommendedPage",
+      components: { default: RecommendedPage, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    
   ],
   scrollBehavior: to => {
     if (to.hash) {
