@@ -10,6 +10,9 @@ import LoginPage from "./views/LoginPage.vue";
 import QuizLifestage from "./views/QuizLifestage.vue"
 import QuizIndustry from "./views/QuizIndustry.vue"
 import RecommendedPage from "./views/RecommendedPage.vue"
+import QuizLoginHeader from "./layout/QuizLoginHeader.vue"
+import AccountsNavbar from "./layout/AccountsNavbar.vue"
+
 
 Vue.use(Router);
 
@@ -27,7 +30,7 @@ export default new Router({
     {
       path: "/index",
       name: "index",
-      components: { default: Index, header: MainNavbar },
+      components: { default: Index, header: AccountsNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -36,7 +39,7 @@ export default new Router({
     {
       path: "/SignUp",
       name: "SignUp",
-      components: { default: SignUp , header: MainNavbar },
+      components: { default: SignUp , header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -45,7 +48,7 @@ export default new Router({
     {
       path: "/LoginPage",
       name: "LoginPage",
-      components: { default: LoginPage, header: MainNavbar },
+      components: { default: LoginPage, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -54,7 +57,7 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      components: { default: Login, header: MainNavbar },
+      components: { default: Login, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 }
       }
@@ -71,7 +74,7 @@ export default new Router({
     {
       path: "/quiz/lifestage",
       name: "quizlifestage",
-      components: { default: QuizLifestage, header: MainNavbar },
+      components: { default: QuizLifestage, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -80,7 +83,7 @@ export default new Router({
     {
       path: "/quiz/industry",
       name: "quizindustry",
-      components: { default: QuizIndustry, header: MainNavbar },
+      components: { default: QuizIndustry, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -94,7 +97,8 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    }
+    },
+    
   ],
   scrollBehavior: to => {
     if (to.hash) {
