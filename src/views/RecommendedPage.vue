@@ -18,7 +18,7 @@
                                             <md-card class="md-card-plain">
                                                 <div class="md-layout-item md-size-100 mx-auto">
                                                 <img
-                                                    :src="studentImg"
+                                                    :src="dataAnalyticsImg"
                                                     alt="Thumbnail Image"
                                                     class="img-raised rounded"
                                                 />
@@ -43,7 +43,7 @@
                                         <md-card class="md-card-plain">
                                             <div class="md-layout-item md-size-100 mx-auto">
                                             <img
-                                                :src="graduateImg2"
+                                                :src="googleAnalyticsImg"
                                                 alt="Thumbnail Image"
                                                 class="img-raised rounded "
                                             />
@@ -68,7 +68,7 @@
                                         <md-card class="md-card-plain">
                                             <div class="md-layout-item md-size-100 mx-auto">
                                             <img
-                                                :src="industryImg3"
+                                                :src="SEOimg"
                                                 alt="Thumbnail Image"
                                                 class="img-raised rounded img-fluid"
                                             />
@@ -114,17 +114,17 @@ export default {
             type: String,
             default: require("@/assets/img/city-profile.jpg")
         },
-        studentImg: {
+        dataAnalyticsImg: {
+            type: String,
+            default: require("@/assets/img/DataAnalytics.jpg")
+        },
+        googleAnalyticsImg: {
             type: String,
             default: require("@/assets/img/GoogleAnalytics.png")
         },
-        graduateImg2: {
+        SEOimg: {
             type: String,
-            default: require("@/assets/img/GoogleAnalytics.png")
-        },
-        industryImg3: {
-            type: String,
-            default: require("@/assets/img/GoogleAnalytics.png")
+            default: require("@/assets/img/SEO.jpg")
         },
         midCareerImg4: {
             type: String,
