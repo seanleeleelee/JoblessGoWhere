@@ -40,6 +40,23 @@
                                     </md-button>
                                 </div>
                             </div>
+                            <br><br><br>
+                            <div id="progress-pagination">
+                                <p>Your progress:
+                                </p>
+                                <div class="md-layout">
+                                    <div class="md-layout-item md-size-100 md-xsmall-size-100">
+                                        <md-progress-bar v-if="this.text == ''"
+                                            class="md-success"
+                                            :md-value="50"
+                                        ></md-progress-bar>
+                                        <md-progress-bar v-else
+                                            class="md-success"
+                                            :md-value="75"
+                                        ></md-progress-bar>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

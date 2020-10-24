@@ -107,15 +107,35 @@
                         </div>
 
                         <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-right">
-                            <md-button
+                            <md-button v-if="this.lifestage != null"
                                 href="/quiz/industry"
-                                class="md-success md-lg"
+                                class="md-success"
                             >
-                                <i class="fas fa-play"></i> 
-                                      Next
+                            Next
                             </md-button>      
                         </div>                     
-                    </div>  
+                    </div>
+                    <br><br><br>
+                        <div
+                            class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto"
+                        >
+                            <div id="progress-pagination">
+                                <p>Your progress:
+                                </p>
+                                <div class="md-layout">
+                                    <div class="md-layout-item md-size-100 md-xsmall-size-100">
+                                        <md-progress-bar v-if="this.lifestage == null"
+                                            class="md-success"
+                                            :md-value="0"
+                                        ></md-progress-bar>
+                                        <md-progress-bar v-else
+                                            class="md-success"
+                                            :md-value="25"
+                                        ></md-progress-bar>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
                 </div>
             </div>
         </div>
