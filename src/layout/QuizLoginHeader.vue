@@ -8,7 +8,9 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
+        <a href="/">
         <p class="md-title">JoblessGoWhere</p>
+        </a>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -24,6 +26,16 @@
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
+
+              <md-list-item href="/">
+                <md-icon>info_outline</md-icon>
+                <p>About</p>
+              </md-list-item>
+
+              <md-list-item href="/LoginPage">
+                <i class="material-icons">cloud_download</i>
+                <p>Login</p>
+              </md-list-item>
 
               <li class="md-list-item" >
                 <a

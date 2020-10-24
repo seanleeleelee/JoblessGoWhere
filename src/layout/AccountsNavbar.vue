@@ -10,76 +10,16 @@
       <div class="md-toolbar-section-start">
         <p class="md-title">JoblessGoWhere</p>
       </div>
-      <div class="md-toolbar-section-end">
-        <md-button
-          class="md-just-icon md-simple md-toolbar-toggle"
-          :class="{ toggled: toggledClass }"
-          @click="toggleNavbarMobile()"
-        >
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </md-button>
-        
-        <div class="md-toolbar-section-end">
-            <md-button
-                class="md-just-icon md-simple md-white md-toolbar-toggle"
-            >
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </md-button>
-
-            <div class="md-collapse">
-                <div class="md-autocomplete">
-                    <md-autocomplete
-                        class="search has-white"
-                        v-model="selectedEmployee"
-                        :md-options="employees"
-                        :md-open-on-focus="false"
-                    >
-                        <label>Search...</label>
-                    </md-autocomplete>
-                </div>
-            </div>
-        </div>
-
+      <div class="md-toolbar-section-start">
         <div class="md-collapse">
-          <div class="md-collapse-wrapper">
-            <md-list>
-
-              <li class="md-list-item" >
-                <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
-                >
-                  <div class="md-list-item-content">
-                    <drop-down direction="down">
-                      <ul class="dropdown-menu dropdown-with-icons">
-                        <li>
-                          <a href="/">
-                            <i class="material-icons">view_day</i>
-                            <p>Landing Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/LoginPage">
-                            <i class="material-icons">fingerprint</i>
-                            <p>Login Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/profile">
-                            <i class="material-icons">account_circle</i>
-                            <p>Profile Page</p>
-                          </a>
-                        </li>
-                      </ul>
-                    </drop-down>
-                  </div>
-                </a>
-              </li>
-            </md-list>
+          <div class="md-autocomplete">
+            <md-autocomplete
+              class="search"
+              v-model="selectedEmployee"
+              :md-options="employees"
+            >
+              <label>Search...</label>
+            </md-autocomplete>
           </div>
         </div>
       </div>
@@ -128,7 +68,18 @@ export default {
   data() {
     return {
       extraNavClasses: "",
-      toggledClass: false
+      toggledClass: false,
+      selectedEmployee: null,
+      employees: [
+        "Jim Halpert",
+        "Dwight Schrute",
+        "Michael Scott",
+        "Pam Beesly",
+        "Angela Martin",
+        "Kelly Kapoor",
+        "Ryan Howard",
+        "Kevin Malone"
+      ],
     };
   },
   /*computed: {
