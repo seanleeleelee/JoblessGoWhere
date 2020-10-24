@@ -9,7 +9,7 @@
                         <div 
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
                         >
-                            <h2 class="title text-center">What skillset(s) do you have? </h2>
+                            <h2 class="title text-center">What skillsets do you have? </h2>
                             <div class="text-center">Note: Hold down control (ctrl) or the command button to select multiple skills. </div>
                             <br>
                             <select class = "dropdown" v-model = "text" multiple>
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-right">
                                     <md-button
-                                        href="/quiz/skillset"
+                                        href="/quiz/course"
                                         class="md-success"
                                     >
                                         Next
@@ -50,7 +50,7 @@
 
 <script>
 export default {
-    bodyClass: "quiz-industry-page",
+    bodyClass: "quiz-skillset-page",
     props :{
         header: {
             type: String,

@@ -9,15 +9,15 @@
                         <div 
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
                         >
-                            <h2 class="title text-center">Which industry are you interested in? </h2>
-                            <div class="text-center">Note: Please only pick one. </div>
+                            <h2 class="title text-center">What courses have you completed? </h2>
+                            <div class="text-center">Note: Hold down control (ctrl) or the command button to select multiple courses. </div>
                             <br>
-                            <select class = "dropdown" v-model = "text">
-                                <option v-for="item in industryList" :key="item" >
-                                {{item}}
+                            <select class = "dropdown" v-model = "text" multiple>
+                                <option v-for="course in courseList" :key="course" >
+                                {{course}}
                                 </option>
                             </select>
-                            <br><br>{{"Your choice of Industry: " + text}}
+                            <br><br>{{"You have completed the following courses: " + text}}
                         </div>
                         <div
                             class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto"
@@ -25,7 +25,7 @@
                             <div class="md-layout">
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-left">
                                     <md-button
-                                        href="/quiz/lifestage"
+                                        href="/quiz/skillset"
                                         class="md-danger"
                                     >
                                     Back
@@ -33,15 +33,14 @@
                                 </div>
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-right">
                                     <md-button
-                                        href="/quiz/skillset"
+                                        href="/RecommendedPage"
                                         class="md-success"
                                     >
-                                        Next
+                                    Next
                                     </md-button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -51,7 +50,7 @@
 
 <script>
 export default {
-    bodyClass: "quiz-industry-page",
+    bodyClass: "quiz-course-page",
     props :{
         header: {
             type: String,
@@ -68,31 +67,13 @@ export default {
     data() {
         return {
             text: "",
-            industryList: [
-			    'Manufacturing Energy & Chemicals',
-			    'Precision Engineering',
-			    'Marine & Offshore',
-			    'Aerospace',
-                'Electronics',
-                'Built Environment Construction (incl. Archi & Engineering services)',
-                'Real Estate',
-                'Cleaning',
-                'Security',
-                'Trade & Connectivity Logistics',
-                'Air Transport',
-                'Sea Transport',
-                'Land Transport (incl. Public Transport)',
-                'Wholesale Trade',
-                'Essential Domestic Services',
-                'Healthcare',
-                'Education (Early Childhood and Private Education)',
-                'Professional Services',
-                'ICT and Media',
-                'Financial Services',
-                'Lifestyle Food Services',
-                'Retail',
-                'Hotels',
-                'Food Manufacturing SPRING'
+            courseList: [
+                "Course 1",
+                "Course 2",
+                "Course 3",
+                "Course 4",
+                "Course 5",
+                "Course 6"
   	        ]
         }
     }
