@@ -10,7 +10,7 @@
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
                         >
                             <h2 class="title text-center">Your Recommended Courses</h2>
-                            <p> These are courses recommended for you through your quiz results<p>
+                            <h4> These are courses recommended for you through your quiz results</h4>
                             <div class="DataAnalytics">
                                 <div class="md-layout">
                                     <div class="md-layout-item md-medium-size-25 md-small-size-100">
