@@ -15,7 +15,7 @@
               <div class="DataAnalytics">
                 <div class="md-layout">
                   <div
-                    class="md-layout-item md-medium-size-25 md-small-size-100"
+                    class="md-layout-item md-medium-size-30 md-small-size-100"
                   >
                     <div class="DataAnalytics">
                       <md-card class="md-card-plain">
@@ -26,16 +26,17 @@
                             class="img-raised rounded"
                           />
                         </div>
-                        <h4 class="card-title">
-                          Data Analytics
-                        </h4>
+
                         <md-card-content>
-                          <p class="card-description">
+                          <h3 class="card-title">
+                            Data Analytics
+                          </h3>
+                          <h6>
                             Coursea | Intermediate
-                          </p>
-                          <p class="card-description">
-                            Completed by 68% of people in the same industry as
-                            you
+                          </h6>
+                          <p>
+                            Completed by <b>68%</b> of people in the same
+                            industry as you
                           </p>
                         </md-card-content>
                       </md-card>
@@ -43,7 +44,7 @@
                   </div>
 
                   <div
-                    class="md-layout-item md-medium-size-25 md-small-size-100"
+                    class="md-layout-item md-medium-size-30 md-small-size-100"
                   >
                     <div class="lifestage">
                       <md-card class="md-card-plain">
@@ -54,15 +55,16 @@
                             class="img-raised rounded "
                           />
                         </div>
-                        <h4 class="card-title">
-                          Google Analytics
-                        </h4>
+
                         <md-card-content>
-                          <p class="card-description">
+                          <h3 class="card-title">
+                            Google Analytics
+                          </h3>
+                          <h6>
                             edX | Beginner
-                          </p>
-                          <p class="card-description">
-                            Completed by 65% of people in the same industry as
+                          </h6>
+                          <p>
+                            Completed by <b>65%</b> of people in the same industry as
                             you
                           </p>
                         </md-card-content>
@@ -71,7 +73,7 @@
                   </div>
 
                   <div
-                    class="md-layout-item md-medium-size-25 md-small-size-100"
+                    class="md-layout-item md-medium-size-30 md-small-size-100"
                   >
                     <div class="lifestage">
                       <md-card class="md-card-plain">
@@ -82,15 +84,15 @@
                             class="img-raised rounded img-fluid"
                           />
                         </div>
-                        <h4 class="card-title">
-                          SEO for Beginners
-                        </h4>
                         <md-card-content>
-                          <p class="card-description">
+                          <h3 class="card-title">
+                            SEO 
+                          </h3>
+                          <h6>
                             SkillsFuture | Beginner
-                          </p>
-                          <p class="card-description">
-                            Completed by 57% of people in the same industry as
+                          </h6>
+                          <p>
+                            Completed by <b>57%</b> of people in the same industry as
                             you
                           </p>
                         </md-card-content>
@@ -99,9 +101,9 @@
                   </div>
                 </div>
               </div>
-              <md-button href="/" class="md-success md-lg">
-                <i class="fas fa-play"></i>
-                Save to profile
+              <md-button href="/SignUp" class="md-success md-lg">
+                
+                Continue Sign Up
               </md-button>
             </div>
           </div>
@@ -121,7 +123,7 @@ export default {
     },
     dataAnalyticsImg: {
       type: String,
-      default: require("@/assets/img/DataAnalytics.jpg")
+      default: require("@/assets/img/python.jpeg")
     },
     gaImg: {
       type: String,
@@ -129,7 +131,7 @@ export default {
     },
     SEOimg: {
       type: String,
-      default: require("@/assets/img/SEO.jpg")
+      default: require("@/assets/img/seo.jpg")
     },
     midCareerImg4: {
       type: String,

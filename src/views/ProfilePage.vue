@@ -48,7 +48,7 @@
               </div>
               <md-progress-bar
                 class="md-success"
-                :md-value="amount"
+                :md-value="amount2"
               ></md-progress-bar>
 
               <div class="title">
@@ -56,7 +56,7 @@
               </div>
               <md-progress-bar
                 class="md-success"
-                :md-value="amount"
+                :md-value="amount3"
               ></md-progress-bar>
               <hr />
 
@@ -239,7 +239,10 @@ export default {
   },
   data() {
     return {
-      lifestage: null
+      lifestage: null,
+      amount: 30,
+      amount2: 20,
+      amount3: 80,
     };
   }
 };
