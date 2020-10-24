@@ -9,13 +9,15 @@
                         <div 
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
                         >
-                            <h2 class="title text-center">What Industry are you interested in? </h2>
-                            <select class = "dropdown" v-model = "text">
-                                <option v-for="item in industryList" :key="item" >
-                                {{item}}
+                            <h2 class="title text-center">What skillset(s) do you have? </h2>
+                            <div class="text-center">Note: Hold down control (ctrl) or the command button to select multiple skills. </div>
+                            <br>
+                            <select class = "dropdown" v-model = "text" multiple>
+                                <option v-for="skill in skillsList" :key="skill" >
+                                {{skill}}
                                 </option>
                             </select>
-                            <br><br>{{"Your choice of Industry: " + text}}
+                            <br><br>{{"Your chosen skillset(s): " + text}}
                         </div>
                         <div
                             class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto"
@@ -23,7 +25,7 @@
                             <div class="md-layout">
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-left">
                                     <md-button
-                                        href="/quiz/lifestage"
+                                        href="/quiz/industry"
                                         class="md-danger"
                                     >
                                     Back
@@ -39,7 +41,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -66,31 +67,13 @@ export default {
     data() {
         return {
             text: "",
-            industryList: [
-			    'Manufacturing Energy & Chemicals',
-			    'Precision Engineering',
-			    'Marine & Offshore',
-			    'Aerospace',
-                'Electronics',
-                'Built Environment Construction (incl. Archi & Engineering services)',
-                'Real Estate',
-                'Cleaning',
-                'Security',
-                'Trade & Connectivity Logistics',
-                'Air Transport',
-                'Sea Transport',
-                'Land Transport (incl. Public Transport)',
-                'Wholesale Trade',
-                'Essential Domestic Services',
-                'Healthcare',
-                'Education (Early Childhood and Private Education)',
-                'Professional Services',
-                'ICT and Media',
-                'Financial Services',
-                'Lifestyle Food Services',
-                'Retail',
-                'Hotels',
-                'Food Manufacturing SPRING'
+            skillsList: [
+                "Web Development",
+                "Microsoft Office Skills",
+                "Java",
+                "Cloud Management",
+                "Product & Service Promotion",
+                "Data Entry"
   	        ]
         }
     }

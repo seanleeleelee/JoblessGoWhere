@@ -13,6 +13,7 @@ import RecommendedPage from "./views/RecommendedPage.vue";
 import QuizLoginHeader from "./layout/QuizLoginHeader.vue";
 import AccountsNavbar from "./layout/AccountsNavbar.vue";
 import ProfilePage from "./views/ProfilePage.vue";
+import QuizSkillset from "./views/QuizSkillset.vue";
 
 Vue.use(Router);
 
@@ -84,6 +85,15 @@ export default new Router({
       path: "/quiz/industry",
       name: "quizindustry",
       components: { default: QuizIndustry, header: QuizLoginHeader },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/quiz/skillset",
+      name: "quizskillset",
+      components: { default: QuizSkillset, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
