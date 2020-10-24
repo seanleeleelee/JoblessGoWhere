@@ -8,46 +8,75 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Course Mastery</h2>
+              <h1 class="title text-center">Check out your progress!</h1>
             </div>
           </div>
-          <div id="progress-pagination">
-            <div class="md-layout">
-              <div class="md-layout-item md-size-50 md-xsmall-size-100">
-                <div class="title">
-                  <h3>Welcome</h3>
-                </div>
-                <img
-                  :src="dataAnalyticsImg"
-                  alt="Thumbnail Image"
-                  class="img-raised rounded"
-                />
-              </div>
-              <div class="md-layout-item md-size-50 md-xsmall-size-100">
-                <div class="title">
-                  <h3>Programming Methadology</h3>
-                </div>
-                <md-progress-bar
-                  class="md-primary"
-                  :md-value="amount"
-                ></md-progress-bar>
 
-                <div class="title">
-                  <h3>Programming Methadology II</h3>
-                </div>
-                <md-progress-bar
-                  class="md-primary"
-                  :md-value="amount"
-                ></md-progress-bar>
-
-                <div class="title">
-                  <h3>Data Structures And Algorithmns</h3>
-                </div>
-                <md-progress-bar
-                  class="md-primary"
-                  :md-value="amount"
-                ></md-progress-bar>
+          <div class="md-layout">
+            <div class="md-layout-item md-size-40 md-small-size-100">
+              <div class="tim-typo">
+                <h2>
+                  Welcome Ashley
+                </h2>
               </div>
+              <div class="md-layout-item md-size-40">
+                <img class="rounded" :src="dataAnalyticsImg" />
+              </div>
+            </div>
+
+            <div class="md-layout-item md-size-60 md-small-size-100">
+              <h1 class="title text-center">Course Mastery</h1>
+              <div class="title">
+                <h3>Programming Methadology</h3>
+              </div>
+              <md-progress-bar
+                class="md-success"
+                :md-value="amount"
+              ></md-progress-bar>
+
+              <div class="title">
+                <h3>Programming Methadology II</h3>
+              </div>
+              <md-progress-bar
+                class="md-success"
+                :md-value="amount"
+              ></md-progress-bar>
+
+              <div class="title">
+                <h3>Data Structures And Algorithmns</h3>
+              </div>
+              <md-progress-bar
+                class="md-success"
+                :md-value="amount"
+              ></md-progress-bar>
+              <hr />
+
+              <h1 class="title text-center">Course Mastery</h1>
+              <div class="title">
+                <h3>Programming Methadology</h3>
+              </div>
+              <md-progress-bar
+                class="md-success"
+                :md-value="amount"
+              ></md-progress-bar>
+
+              <div class="title">
+                <h3>Programming Methadology II</h3>
+              </div>
+              <md-progress-bar
+                class="md-success"
+                :md-value="amount"
+              ></md-progress-bar>
+
+              <div class="title">
+                <h3>Data Structures And Algorithmns</h3>
+              </div>
+              <md-progress-bar
+                class="md-success"
+                :md-value="amount"
+              ></md-progress-bar>
+
+              <hr />
             </div>
           </div>
         </div>

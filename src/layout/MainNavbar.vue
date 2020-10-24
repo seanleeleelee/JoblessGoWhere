@@ -8,7 +8,11 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        <p class="md-title">JoblessGoWhere</p>
+        
+        <a href = "/">
+        <p class="md-title" >JoblessGoWhere</p>
+        </a>
+
       </div>
       <div class="md-toolbar-section-end">
         <md-button
