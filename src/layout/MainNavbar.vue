@@ -8,11 +8,9 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        
-        <a href = "/">
-        <p class="md-title" >JoblessGoWhere</p>
+        <a href="/">
+          <p class="md-title">JoblessGoWhere</p>
         </a>
-
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -25,14 +23,27 @@
           <span class="icon-bar"></span>
         </md-button>
 
+        <div class="md-toolbar-section-end">
+          <div class="md-collapse">
+            <div class="md-autocomplete">
+              <md-autocomplete
+                class="search has-white"
+                v-model="selectedEmployee"
+                :md-options="employees"
+                :md-open-on-focus="false"
+              >
+                <label>Search...</label>
+              </md-autocomplete>
+            </div>
+          </div>
+        </div>
+
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
-
-              <md-list-item href="/"> 
+              <md-list-item href="/">
                 <md-icon>info_outline</md-icon>
                 <p>About</p>
-                
               </md-list-item>
 
               <md-list-item href="/LoginPage">
@@ -40,7 +51,7 @@
                 <p>Login</p>
               </md-list-item>
 
-              <li class="md-list-item" >
+              <li class="md-list-item">
                 <a
                   href="javascript:void(0)"
                   class="md-list-item-router md-list-item-container md-button-clean dropdown"
@@ -102,8 +113,7 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 export default {
-  components: {
-  },
+  components: {},
   props: {
     type: {
       type: String,

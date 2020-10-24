@@ -35,7 +35,7 @@
                 <md-input v-model="conf_password"></md-input>
               </md-field>
 
-              <md-button slot="footer" class="md-simple md-success md-lg">
+              <md-button href="/ProfilePage" slot="footer" class="md-simple md-success md-lg">
                 Get Started
               </md-button>
               
