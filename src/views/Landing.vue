@@ -1,4 +1,5 @@
 <template>
+
   <div class="wrapper">
     <parallax class="section page-header header-filter" :style="headerStyle">
       <div class="container">
@@ -22,10 +23,11 @@
         </div>
       </div>
     </parallax>
+    
     <div class="main main-raised">
       <div class="section">
         <div class="container">
-          <div class="md-layout">
+          <div class="md-layout-item ">
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
@@ -74,6 +76,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="container " >
+      <iframe width="1000"  src="https://data.gov.sg/dataset/job-vacancy-by-industry-and-occupational-group-quarterly/resource/3ba4be1b-b954-4db8-9c0f-d7a3745f8294/view/754efe9d-4577-45a1-8152-68aa5897632b" frameBorder="0"></iframe>
       </div>
       <div class="section text-center">
         <div class="container">
@@ -208,11 +213,13 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
 <script>
 export default {
+  
   bodyClass: "landing-page",
   props: {
     header: {
