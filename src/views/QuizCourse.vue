@@ -9,15 +9,15 @@
                         <div 
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
                         >
-                            <h2 class="title text-center">What skillsets do you have? </h2>
-                            <div class="text-center">Note: Hold down control (ctrl) or the command button to select multiple skills. </div>
+                            <h2 class="title text-center">What courses have you completed? </h2>
+                            <div class="text-center">Note: Hold down control (ctrl) or the command button to select multiple courses. </div>
                             <br>
                             <select class = "dropdown" v-model = "text" multiple>
-                                <option v-for="skill in skillsList" :key="skill" >
-                                {{skill}}
+                                <option v-for="course in courseList" :key="course" >
+                                {{course}}
                                 </option>
                             </select>
-                            <br><br>{{"Your chosen skillset(s): " + text}}
+                            <br><br>{{"You have completed the following courses: " + text}}
                         </div>
                         <div
                             class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto"
@@ -25,7 +25,7 @@
                             <div class="md-layout">
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-left">
                                     <md-button
-                                        href="/quiz/industry"
+                                        href="/quiz/skillset"
                                         class="md-danger"
                                     >
                                     Back
@@ -33,10 +33,10 @@
                                 </div>
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-right">
                                     <md-button v-if="this.text != ''"
-                                        href="/quiz/course"
+                                        href="/RecommendedPage"
                                         class="md-success"
                                     >
-                                        Next
+                                    Next
                                     </md-button>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
 
 <script>
 export default {
-    bodyClass: "quiz-skillset-page",
+    bodyClass: "quiz-course-page",
     props :{
         header: {
             type: String,
@@ -67,13 +67,13 @@ export default {
     data() {
         return {
             text: "",
-            skillsList: [
-                "Web Development",
-                "Microsoft Office Skills",
-                "Java",
-                "Cloud Management",
-                "Product & Service Promotion",
-                "Data Entry"
+            courseList: [
+                "Course 1",
+                "Course 2",
+                "Course 3",
+                "Course 4",
+                "Course 5",
+                "Course 6"
   	        ]
         }
     }

@@ -9,7 +9,9 @@
                         <div 
                         class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
                         >
-                            <h2 class="title text-center">What Industry are you interested in? </h2>
+                            <h2 class="title text-center">Which industry are you interested in? </h2>
+                            <div class="text-center">Note: Please only pick one. </div>
+                            <br>
                             <select class = "dropdown" v-model = "text">
                                 <option v-for="item in industryList" :key="item" >
                                 {{item}}
@@ -30,7 +32,7 @@
                                     </md-button>
                                 </div>
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-right">
-                                    <md-button
+                                    <md-button v-if="this.text != ''"
                                         href="/quiz/skillset"
                                         class="md-success"
                                     >

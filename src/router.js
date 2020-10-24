@@ -14,6 +14,7 @@ import QuizLoginHeader from "./layout/QuizLoginHeader.vue";
 import AccountsNavbar from "./layout/AccountsNavbar.vue";
 import ProfilePage from "./views/ProfilePage.vue";
 import QuizSkillset from "./views/QuizSkillset.vue";
+import QuizCourse from "./views/QuizCourse.vue";
 
 Vue.use(Router);
 
@@ -94,6 +95,15 @@ export default new Router({
       path: "/quiz/skillset",
       name: "quizskillset",
       components: { default: QuizSkillset, header: QuizLoginHeader },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/quiz/course",
+      name: "quizcourse",
+      components: { default: QuizCourse, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
