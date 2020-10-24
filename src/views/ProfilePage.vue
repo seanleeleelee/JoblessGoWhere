@@ -13,19 +13,28 @@
           </div>
 
           <div class="md-layout">
-            <div class="md-layout-item md-size-40 md-small-size-100">
-              <div class="tim-typo">
-                <h2>
-                  Welcome Ashley
-                </h2>
-              </div>
-              <div class="md-layout-item md-size-40">
-                <img class="rounded" :src="dataAnalyticsImg" />
-              </div>
+            <div class="md-layout-item md-size-35 md-small-size-100">
+              <md-card>
+                <md-card-content class="text-center">
+                  <h2>Welcome Ashley</h2>
+                  <div class="md-layout-item md-size-70 mx-auto text-center">
+                    <div class="avatar ">
+                      <img
+                        :src="teamImg2"
+                        alt="Circle Image"
+                        class="rounded-circle img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <h3>
+                    Financial Service
+                  </h3>
+                </md-card-content>
+              </md-card>
             </div>
 
-            <div class="md-layout-item md-size-60 md-small-size-100">
-              <h1 class="title text-center">Course Mastery</h1>
+            <div class="md-layout-item md-size-65 md-small-size-100">
+              <h2 class="title text-left">Course Mastery</h2>
               <div class="title">
                 <h3>Programming Methadology</h3>
               </div>
@@ -51,32 +60,134 @@
               ></md-progress-bar>
               <hr />
 
-              <h1 class="title text-center">Course Mastery</h1>
-              <div class="title">
-                <h3>Programming Methadology</h3>
-              </div>
-              <md-progress-bar
-                class="md-success"
-                :md-value="amount"
-              ></md-progress-bar>
+              <h2 class="title text-left">To complete</h2>
+              <div class="md-layout">
+                <div class="md-layout-item md-size-30">
+                  <div class="DataAnalytics">
+                    <md-card class="md-card-plain">
+                      <div class="md-layout-item md-size-100 mx-auto">
+                        <img
+                          :src="htmlImg"
+                          alt="Thumbnail Image"
+                          class="img-raised rounded"
+                        />
+                      </div>
 
-              <div class="title">
-                <h3>Programming Methadology II</h3>
-              </div>
-              <md-progress-bar
-                class="md-success"
-                :md-value="amount"
-              ></md-progress-bar>
+                      <md-card-content class="text-center">
+                        <h4>
+                          HTML, CSS and JavaScript for Web Developers
+                        </h4>
+                      </md-card-content>
+                    </md-card>
+                  </div>
+                </div>
 
-              <div class="title">
-                <h3>Data Structures And Algorithmns</h3>
-              </div>
-              <md-progress-bar
-                class="md-success"
-                :md-value="amount"
-              ></md-progress-bar>
+                <div class="md-layout-item md-size-30">
+                  <div class="DataAnalytics">
+                    <md-card class="md-card-plain">
+                      <div class="md-layout-item md-size-100 mx-auto">
+                        <img
+                          :src="csImg"
+                          alt="Thumbnail Image"
+                          class="img-raised rounded"
+                        />
+                      </div>
+                      <md-card-content class="text-center">
+                        <h4>
+                          Computer Science: Programming with a Purpose
+                        </h4>
+                      </md-card-content>
+                    </md-card>
+                  </div>
+                </div>
 
+                <div class="md-layout-item md-size-30">
+                  <div class="DataAnalytics">
+                    <md-card class="md-card-plain">
+                      <div class="md-layout-item md-size-100 mx-auto">
+                        <img
+                          :src="gaImg"
+                          alt="Thumbnail Image"
+                          class="img-raised rounded"
+                        />
+                      </div>
+                      <md-card-content class="text-center">
+                        <h4>
+                          Google Analytics
+                        </h4>
+                      </md-card-content>
+                    </md-card>
+                  </div>
+                </div>
+              </div>
+
+              <div class="md-layout">
+                <div class="md-layout-item md-size-30 text-center">
+                  <md-button class="md-success">Start</md-button>
+                </div>
+
+                <div class="md-layout-item md-size-30 text-center">
+                  <md-button class="md-success ">Start</md-button>
+                </div>
+
+                <div class="md-layout-item md-size-30 text-center">
+                  <md-button class="md-success ">Start</md-button>
+                </div>
+              </div>
+              <br />
               <hr />
+
+              <h2 class="title text-left">Completed Courses</h2>
+              <div class="md-layout">
+                <div class="md-layout-item md-size-30">
+                  <div class="DataAnalytics">
+                    <md-card class="md-card-plain">
+                      <div class="md-layout-item md-size-100 mx-auto">
+                        <img
+                          :src="oopImg"
+                          alt="Thumbnail Image"
+                          class="img-raised rounded"
+                        />
+                      </div>
+
+                      <md-card-content class="text-center">
+                        <h4>
+                          Object Oriented Programming in Java
+                        </h4>
+                      </md-card-content>
+                    </md-card>
+                  </div>
+                </div>
+
+                <div class="md-layout-item md-size-30">
+                  <div class="DataAnalytics">
+                    <md-card class="md-card-plain">
+                      <div class="md-layout-item md-size-100 mx-auto">
+                        <img
+                          :src="javaImg"
+                          alt="Thumbnail Image"
+                          class="img-raised rounded"
+                        />
+                      </div>
+                      <md-card-content class="text-center">
+                        <h4>
+                          Introduction to Relational Database
+                        </h4>
+                      </md-card-content>
+                    </md-card>
+                  </div>
+                </div>
+              </div>
+
+              <div class="md-layout">
+                <div class="md-layout-item md-size-30 text-center">
+                  <md-button class="md-success">Redo course</md-button>
+                </div>
+
+                <div class="md-layout-item md-size-30 text-center">
+                  <md-button class="md-success ">Redo course</md-button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -88,26 +199,35 @@
 <script>
 export default {
   bodyClass: "quiz-lifestage-page",
+
   props: {
     header: {
       type: String,
       default: require("@/assets/img/city-profile.jpg")
     },
-    dataAnalyticsImg: {
+    htmlImg: {
       type: String,
-      default: require("@/assets/img/DataAnalytics.jpg")
+      default: require("@/assets/img/profile/html.jpeg")
     },
-    googleAnalyticsImg: {
+    gaImg: {
       type: String,
-      default: require("@/assets/img/GoogleAnalytics.png")
+      default: require("@/assets/img/profile/google-analytics.svg")
     },
-    SEOimg: {
+    csImg: {
       type: String,
-      default: require("@/assets/img/SEO.jpg")
+      default: require("@/assets/img/profile/IntroCSlogo.jpeg")
     },
-    midCareerImg4: {
+    oopImg: {
       type: String,
-      default: require("@/assets/img/GoogleAnalytics.png")
+      default: require("@/assets/img/profile/oop.jpg")
+    },
+    javaImg: {
+      type: String,
+      default: require("@/assets/img/profile/java.jpg")
+    },
+    teamImg2: {
+      type: String,
+      default: require("@/assets/img/faces/user.jpg")
     }
   },
   computed: {
