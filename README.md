@@ -186,7 +186,7 @@ Within the download you'll find the following directories and files:
 ```
 
 ## Reporting Issues
-We use GitHub Issues as the official bug tracker for Pandas-Connect. Feel free to [email us]().
+We use GitHub Issues as the official bug tracker for JoblessGoWhere. Feel free to [email us]().
 
 ## Questions or Feedback
 If you have questions or have any feedback, do [contact us]().

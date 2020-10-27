@@ -25,18 +25,18 @@
 
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
-                <label>Password...</label>
-                <md-input v-model="password"></md-input>
+                <label>Password</label>
+                <md-input type="password" v-model="password"></md-input>
               </md-field>
 
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
-                <label>Confirm Password...</label>
-                <md-input v-model="conf_password"></md-input>
+                <label>Confirm Password</label>
+                <md-input type="password" v-model="conf_password"></md-input>
               </md-field>
 
               <md-button href="/ProfilePage" slot="footer" class="md-simple md-success md-lg">
-                Get Started
+                Sign up
               </md-button>
               
             </login-card>
