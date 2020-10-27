@@ -32,7 +32,7 @@
                                     </md-button>
                                 </div>
                                 <div class="md-layout-item md-size-50 md-small-size-100 text-right">
-                                    <md-button v-if="this.text != ''"
+                                    <md-button
                                         href="/quiz/course"
                                         class="md-success"
                                     >

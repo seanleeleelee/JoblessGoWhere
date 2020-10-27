@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import database from '../firebase.js'
+
 export default {
   bodyClass: "quiz-industry-page",
   props: {
@@ -84,7 +86,8 @@ export default {
   data() {
     return {
       text: "",
-      industryList: [
+      industryList: []
+      /**industryList: [
         "Manufacturing Energy & Chemicals",
         "Precision Engineering",
         "Marine & Offshore",
@@ -109,9 +112,21 @@ export default {
         "Retail",
         "Hotels",
         "Food Manufacturing SPRING",
-      ],
+      ],**/
     };
   },
+  methods: {
+    fetchIndustries: function() {
+      database.collection("industries").get().then((querySnapShot) => {
+        querySnapShot.forEach(doc => {
+          this.industryList.push(doc.data().Name)
+        })
+      })
+    }
+  },
+  created() {
+    this.fetchIndustries()
+  }
 };
 </script>
 
