@@ -26,7 +26,6 @@ const NavbarStore = {
   showNavbar: false
 };
 
-
 Vue.mixin({
   data() {
     return {

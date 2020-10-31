@@ -41,7 +41,7 @@ export default new Router({
     {
       path: "/SignUp",
       name: "SignUp",
-      components: { default: SignUp , header: QuizLoginHeader },
+      components: { default: SignUp, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -126,8 +126,7 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    },
-    
+    }
   ],
   scrollBehavior: to => {
     if (to.hash) {
@@ -136,5 +135,5 @@ export default new Router({
       return { x: 0, y: 0 };
     }
   },
-  mode:"history"
+  mode: "history"
 });
