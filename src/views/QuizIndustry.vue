@@ -11,7 +11,7 @@
               <h2 class="title text-center">
                 Which industry are you interested in?
               </h2>
-              <select class="dropdown" v-model="industry" @click="addIndustry()">
+              <select class="dropdown" v-model="industry">
                 <option v-for="item in industryList" :key="item">
                   {{ item }}
                 </option>
@@ -34,6 +34,7 @@
                     v-if="this.industry != ''"
                     href="/quiz/skillset"
                     class="md-success"
+                    @click="addIndustry"
                   >
                     Next
                   </md-button>
@@ -67,6 +68,7 @@
 
 <script>
 import database from '../firebase.js'
+import { serverBus } from '../main.js';
 
 export default {
   bodyClass: "quiz-industry-page",
@@ -87,32 +89,7 @@ export default {
     return {
       industry: "",
       industryList: [],
-      /**industryList: [
-        "Manufacturing Energy & Chemicals",
-        "Precision Engineering",
-        "Marine & Offshore",
-        "Aerospace",
-        "Electronics",
-        "Built Environment Construction (incl. Archi & Engineering services)",
-        "Real Estate",
-        "Cleaning",
-        "Security",
-        "Trade & Connectivity Logistics",
-        "Air Transport",
-        "Sea Transport",
-        "Land Transport (incl. Public Transport)",
-        "Wholesale Trade",
-        "Essential Domestic Services",
-        "Healthcare",
-        "Education (Early Childhood and Private Education)",
-        "Professional Services",
-        "ICT and Media",
-        "Financial Services",
-        "Lifestyle Food Services",
-        "Retail",
-        "Hotels",
-        "Food Manufacturing SPRING",
-      ],**/
+      docID: ""
     };
   },
   methods: {
@@ -125,17 +102,18 @@ export default {
     },
 
     addIndustry: function() {
-      database.collection("users").add({
+      database.collection("users").doc(this.docID).update({
             industry : this.industry
-            }).then(docRef => {
-                console.log(docRef.id);
-                this.docID = docRef.id;
-                });
-        console.log("created doc");
+            });
+      console.log("updated doc");
+      console.log(this.docID);
     }
   },
   created() {
-    this.fetchIndustries()
+    this.fetchIndustries();
+    serverBus.$on('createdDoc', (data) => {
+      this.docID = data;
+    });
   }
 };
 </script>
