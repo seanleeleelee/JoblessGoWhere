@@ -520,6 +520,7 @@
   .md-card-header,
   .description{
     text-align: center;
+    color:black ;
   }
 
   &.md-card-hidden{
@@ -533,6 +534,13 @@
 
   .description{
     margin-top: 0;
+  }
+  .errors{
+    margin-top: 0;
+    color:red;
+  }
+  .other {
+    text-align: right;
   }
 
   .md-card-actions{

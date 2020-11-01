@@ -10,11 +10,17 @@
     <md-card-content>
       <slot name="description"></slot>
       <slot name="inputs"></slot>
+      <slot name="errors"></slot>
     </md-card-content>
 
     <md-card-actions>
       <slot name="footer"></slot>
     </md-card-actions>
+
+    <md-card-content>
+      <slot name = "other"></slot>
+    </md-card-content>
+
   </md-card>
 </template>
 
