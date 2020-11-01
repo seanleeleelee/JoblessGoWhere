@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import database from '../firebase.js'
+
 export default {
     bodyClass: "quiz-course-page",
     props :{
@@ -84,15 +86,21 @@ export default {
     data() {
         return {
             text: "",
-            courseList: [
-                "Course 1",
-                "Course 2",
-                "Course 3",
-                "Course 4",
-                "Course 5",
-                "Course 6"
-  	        ]
+            courseList: []
         }
+    },
+    methods: {
+        fetchCourses: function() {
+            database.collection("courses").get().then((querySnapShot) => {
+                querySnapShot.forEach(doc => {
+                    // still need to filter based on industry
+                    this.courseList.push(doc.data().Name)
+                })
+            })
+        }
+    },
+    created() {
+        this.fetchCourses();
     }
 };
 </script>
