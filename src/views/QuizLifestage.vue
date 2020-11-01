@@ -196,8 +196,6 @@ export default {
                 lifestage : this.lifestage
                 });
             console.log("updated");
-            serverBus.$emit('addLifeStage', this.docID);
-            console.log("emitted");
         }
     },
     created(){
@@ -207,6 +205,7 @@ export default {
             }).then(docRef => {
                 console.log(docRef.id);
                 this.docID = docRef.id;
+                serverBus.$emit('createdDoc', docRef.id);
                 });
         console.log("created doc");
     },
