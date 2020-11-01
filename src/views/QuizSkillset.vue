@@ -17,7 +17,7 @@
                                 {{skill}}
                                 </option>
                             </select>
-                            <br><br>{{"Your chosen skillset(s): " + text}}
+                            <br><br>{{"Your chosen skillset(s): " + text}} 
                         </div>
                         <div
                             class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto"
@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import database from '../firebase.js'
+
 export default {
     bodyClass: "quiz-skillset-page",
     props :{
@@ -84,15 +86,21 @@ export default {
     data() {
         return {
             text: "",
-            skillsList: [
-                "Web Development",
-                "Microsoft Office Skills",
-                "Java",
-                "Cloud Management",
-                "Product & Service Promotion",
-                "Data Entry"
-  	        ]
+            skillsList: []
         }
+    },
+    methods: {
+        fetchSkillsets: function() {
+            database.collection("courses").get().then((querySnapShot) => {
+                querySnapShot.forEach(doc => {
+                    // still need to filter based on industry
+                    this.skillsList.push(doc.data().Skillset)
+                })
+            })
+        }
+    },
+    created() {
+        this.fetchSkillsets();
     }
 };
 </script>
