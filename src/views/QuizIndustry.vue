@@ -11,12 +11,12 @@
               <h2 class="title text-center">
                 Which industry are you interested in?
               </h2>
-              <select class="dropdown" v-model="text">
+              <select class="dropdown" v-model="industry" @click="addIndustry()">
                 <option v-for="item in industryList" :key="item">
                   {{ item }}
                 </option>
               </select>
-              <br>
+              <br><br>{{"Your chosen industry: " + industry}}
             </div>
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <div class="md-layout">
@@ -31,7 +31,7 @@
                   class="md-layout-item md-size-50 md-small-size-100 text-right"
                 >
                   <md-button
-                    v-if="this.text != ''"
+                    v-if="this.industry != ''"
                     href="/quiz/skillset"
                     class="md-success"
                   >
@@ -45,7 +45,7 @@
                 <div class="md-layout">
                   <div class="md-layout-item md-size-100 md-xsmall-size-100">
                     <md-progress-bar
-                      v-if="this.text == ''"
+                      v-if="this.industry == ''"
                       class="md-success"
                       :md-value="25"
                     ></md-progress-bar>
@@ -85,8 +85,8 @@ export default {
   },
   data() {
     return {
-      text: "",
-      industryList: []
+      industry: "",
+      industryList: [],
       /**industryList: [
         "Manufacturing Energy & Chemicals",
         "Precision Engineering",
@@ -122,6 +122,16 @@ export default {
           this.industryList.push(doc.data().Name)
         })
       })
+    },
+
+    addIndustry: function() {
+      database.collection("users").add({
+            industry : this.industry
+            }).then(docRef => {
+                console.log(docRef.id);
+                this.docID = docRef.id;
+                });
+        console.log("created doc");
     }
   },
   created() {
