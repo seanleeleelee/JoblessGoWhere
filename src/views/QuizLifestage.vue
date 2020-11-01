@@ -107,7 +107,7 @@
                         </div>
 
                         <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-right">
-                            <md-button v-if="this.lifestage != null" @click="addLifeStage()"
+                            <md-button v-if="this.lifestage != null" @click="addLifeStage"
                                 href="/quiz/industry"
                                 class="md-success"
                             >
@@ -145,6 +145,7 @@
 
 <script>
 import database from '../firebase.js'
+import { serverBus } from "../main.js"
 
 export default {
     bodyClass: "quiz-lifestage-page",
@@ -190,16 +191,19 @@ export default {
         onClickExp2(){
             this.lifestage = "Experienced Professional";
         },
-        addLifeStage(){
+        addLifeStage: function() {
             database.collection('users').doc(this.docID).update({
                 lifestage : this.lifestage
                 });
             console.log("updated");
+            serverBus.$emit('addLifeStage', this.docID);
+            console.log("emitted");
         }
     },
     created(){
         database.collection('users').add({
-            lifestage : this.lifestage
+            lifestage : this.lifestage,
+            industry : null
             }).then(docRef => {
                 console.log(docRef.id);
                 this.docID = docRef.id;
