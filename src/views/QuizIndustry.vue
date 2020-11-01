@@ -106,14 +106,14 @@ export default {
             industry : this.industry
             });
       console.log("updated doc");
+      console.log(this.docID);
     }
   },
   created() {
     this.fetchIndustries();
-    serverBus.$on('addLifeStage', (docID) => {
-      this.docID = docID;
+    serverBus.$on('createdDoc', (data) => {
+      this.docID = data;
     });
-    console.log("emitted");
   }
 };
 </script>
