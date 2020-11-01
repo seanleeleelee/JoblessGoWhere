@@ -121,7 +121,7 @@ export default new Router({
     {
       path: "/ProfilePage",
       name: "ProfilePage",
-      components: { default: ProfilePage, header: QuizLoginHeader },
+      components: { default: ProfilePage, header: AccountsNavbar },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
