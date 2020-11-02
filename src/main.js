@@ -38,6 +38,8 @@ Vue.mixin({
   }
 });
 
+export const serverBus = new Vue();
+
 new Vue({
   router,
   store,

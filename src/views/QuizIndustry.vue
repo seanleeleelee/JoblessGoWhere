@@ -38,6 +38,7 @@
                     v-if="this.industry != ''"
                     to="/quiz/skillset"
                     class="md-success"
+                    @click="addIndustry"
                   >
                     Next
                   </md-button>
@@ -70,7 +71,8 @@
 </template>
 
 <script>
-import database from "../firebase.js";
+import database from '../firebase.js'
+import { serverBus } from '../main.js';
 
 export default {
   bodyClass: "quiz-industry-page",
@@ -91,32 +93,7 @@ export default {
     return {
       industry: "",
       industryList: [],
-      /**industryList: [
-        "Manufacturing Energy & Chemicals",
-        "Precision Engineering",
-        "Marine & Offshore",
-        "Aerospace",
-        "Electronics",
-        "Built Environment Construction (incl. Archi & Engineering services)",
-        "Real Estate",
-        "Cleaning",
-        "Security",
-        "Trade & Connectivity Logistics",
-        "Air Transport",
-        "Sea Transport",
-        "Land Transport (incl. Public Transport)",
-        "Wholesale Trade",
-        "Essential Domestic Services",
-        "Healthcare",
-        "Education (Early Childhood and Private Education)",
-        "Professional Services",
-        "ICT and Media",
-        "Financial Services",
-        "Lifestyle Food Services",
-        "Retail",
-        "Hotels",
-        "Food Manufacturing SPRING",
-      ],**/
+      docID: ""
     };
   },
   methods: {
@@ -148,10 +125,18 @@ export default {
         });
       console.log("created doc");
     },
-  },
-  created() {
-    this.fetchIndustries();
-  },
+    created() {
+      this.fetchIndustries();
+      serverBus.$on('createdDoc', (data) => {
+        this.docID = data;
+        database.collection("users").doc(this.docID).update({
+        industry : this.industry
+        })
+      })
+      console.log("updated doc");
+      console.log(this.docID);
+    }
+  }
 };
 </script>
 

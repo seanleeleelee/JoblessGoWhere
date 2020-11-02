@@ -166,7 +166,8 @@
 </template>
 
 <script>
-import database from "../firebase.js";
+import database from '../firebase.js'
+import { serverBus } from "../main.js"
 
 export default {
   bodyClass: "quiz-lifestage-page",

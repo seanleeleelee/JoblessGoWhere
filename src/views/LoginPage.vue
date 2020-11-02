@@ -4,26 +4,58 @@
       <div class="container">
         <div class="md-layout">
           <div
-            class="md-layout-item md-size-33 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
+            class="md-layout-item md-size-35 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
           >
             <login-card header-color="green">
               <h4 slot="title" class="card-title">Welcome Back !</h4>
-              
-              <p slot="description" class="description">One click away to unlocking your full potential</p>
+
+              <p slot="description" class="description">
+                One click away to unlocking your full potential
+              </p>
+              <br />
+
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
                 <label>Username / Email ...</label>
-                <md-input v-model="firstname"></md-input>
+                <md-input
+                  id="name"
+                  v-model="name"
+                  type="text"
+                  required
+                ></md-input>
               </md-field>
-              
+
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>Password...</label>
-                <md-input v-model="password"></md-input>
+                <md-input
+                  type="password"
+                  v-model="password"
+                  required
+                ></md-input>
               </md-field>
-              <md-button slot="footer" class="md-simple md-success md-lg">
+
+              <div slot="errors" class="errors" v-if="errors.length">
+                <br>
+                <p><b>Please correct the following error(s):</b></p>
+                <ul>
+                  <li :key="error.id" v-for="error in errors">{{ error }}</li>
+                </ul>
+              </div>
+
+              <md-button
+                href="/ProfilePage"
+                slot="footer"
+                class="md-simple md-success md-lg"
+                v-on:click="checkForm"
+              >
                 Login
               </md-button>
+
+              <div slot="other" class="other">
+                New member?
+                <a href="/quiz/lifestage">Get started on the quiz instead?</a>
+              </div>
             </login-card>
           </div>
         </div>
@@ -42,11 +74,32 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-      firstname: null,
+      name: null,
       email: null,
-      password: null
+      password: null,
+      errors: []
     };
   },
+  methods: {
+    checkForm: function(e) {
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push("Name required.");
+      }
+
+      if (!this.password) {
+        this.errors.push("Password required");
+      }
+
+      if (!this.errors.length) {
+        return true;
+      }
+
+      e.preventDefault();
+    }
+  },
+
   props: {
     header: {
       type: String,
