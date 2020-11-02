@@ -101,6 +101,10 @@ export default {
     },
     created() {
         this.fetchSkillsets();
+        console.log("industry is:")
+        console.log(this.$store.state.industry)
+        console.log("lifestage is:")
+        console.log(this.$store.getters.lifestage)
     }
 };
 </script>
