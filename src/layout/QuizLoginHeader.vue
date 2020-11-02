@@ -9,7 +9,7 @@
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
         <a href="/">
-        <p class="md-title">JoblessGoWhere</p>
+          <p class="md-title">JoblessGoWhere</p>
         </a>
       </div>
       <div class="md-toolbar-section-end">
@@ -26,7 +26,6 @@
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
-
               <md-list-item href="/">
                 <md-icon>info_outline</md-icon>
                 <p>About</p>
@@ -37,7 +36,7 @@
                 <p>Login</p>
               </md-list-item>
 
-              <li class="md-list-item" >
+              <li class="md-list-item">
                 <a
                   href="javascript:void(0)"
                   class="md-list-item-router md-list-item-container md-button-clean dropdown"
@@ -91,8 +90,7 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 export default {
-  components: {
-  },
+  components: {},
   props: {
     type: {
       type: String,
@@ -181,5 +179,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

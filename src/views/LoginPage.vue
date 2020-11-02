@@ -36,7 +36,7 @@
               </md-field>
 
               <div slot="errors" class="errors" v-if="errors.length">
-                <br>
+                <br />
                 <p><b>Please correct the following error(s):</b></p>
                 <ul>
                   <li :key="error.id" v-for="error in errors">{{ error }}</li>

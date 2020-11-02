@@ -9,7 +9,7 @@
     "build": "vue-cli-service build && gulp licenses",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
-    "pretty": "prettier --write \"./**/*.{js,jsx,json}\"",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json,vue}\"",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev"
   },
   "dependencies": {

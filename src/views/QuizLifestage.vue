@@ -131,7 +131,7 @@
             >
               <md-button
                 v-if="this.lifestage != null"
-                @click="addLifeStage()"
+                @click="addLifeStageFirestore()"
                 to="/quiz/industry"
                 class="md-success"
               >
@@ -166,89 +166,84 @@
 </template>
 
 <script>
-import database from '../firebase.js'
-import { serverBus } from "../main.js"
+import database from "../firebase.js";
+import { serverBus } from "../main.js";
 
 export default {
   bodyClass: "quiz-lifestage-page",
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg"),
+      default: require("@/assets/img/city-profile.jpg")
     },
     studentImg: {
       type: String,
-      default: require("@/assets/img/faces/quiz/student.jpg"),
+      default: require("@/assets/img/faces/quiz/student.jpg")
     },
     graduateImg2: {
       type: String,
-      default: require("@/assets/img/faces/quiz/graduate.jpeg"),
+      default: require("@/assets/img/faces/quiz/graduate.jpeg")
     },
     industryImg3: {
       type: String,
-      default: require("@/assets/img/faces/quiz/industry.jpg"),
+      default: require("@/assets/img/faces/quiz/industry.jpg")
     },
     midCareerImg4: {
       type: String,
-      default: require("@/assets/img/faces/quiz/midcareer.jpg"),
-    },
+      default: require("@/assets/img/faces/quiz/midcareer.jpg")
+    }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   methods: {
     onClickStudent() {
       this.lifestage = "Student";
       this.$store.commit("changeLifestage", "Student");
-      console.log(this.$store.getters.lifestage);
     },
     onClickGrad() {
       this.lifestage = "Graduate";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log(this.$store.getters.lifestage);
     },
     onClickExp1() {
       this.lifestage = "Early Professional";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log(this.$store.getters.lifestage);
     },
     onClickExp2() {
       this.lifestage = "Experienced Professional";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log(this.$store.getters.lifestage);
     },
-    addLifeStage() {
+    addLifeStageFirestore() {
       database
         .collection("users")
         .doc(this.docID)
         .update({
-          lifestage: this.lifestage,
+          lifestage: this.lifestage
         });
-      console.log("updated");
-    },
+      console.log("updated lifestage");
+    }
   },
   created() {
     database
       .collection("users")
       .add({
-        lifestage: this.lifestage,
+        lifestage: this.lifestage
       })
-      .then((docRef) => {
-        console.log(docRef.id);
+      .then(docRef => {
         this.docID = docRef.id;
       });
-    console.log("created doc");
+    console.log("Initialized new user in DB");
   },
   data() {
     return {
       lifestage: null,
-      docID: null,
+      docID: null
     };
-  },
+  }
 };
 </script>
 

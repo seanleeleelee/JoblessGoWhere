@@ -42,8 +42,7 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 export default {
-  components: {
-  },
+  components: {},
   props: {
     type: {
       type: String,
@@ -79,7 +78,7 @@ export default {
         "Kelly Kapoor",
         "Ryan Howard",
         "Kevin Malone"
-      ],
+      ]
     };
   },
   /*computed: {
@@ -143,5 +142,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

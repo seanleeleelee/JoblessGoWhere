@@ -18,9 +18,8 @@
     </md-card-actions>
 
     <md-card-content>
-      <slot name = "other"></slot>
+      <slot name="other"></slot>
     </md-card-content>
-
   </md-card>
 </template>
 
