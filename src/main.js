@@ -13,13 +13,17 @@
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 import Vue from "vue";
+import Vuex from "vuex";
+
 import App from "./App.vue";
 import router from "./router";
+import { store } from "./store";
 
 import MaterialKit from "./plugins/material-kit";
 
 Vue.config.productionTip = false;
 
+Vue.use(Vuex);
 Vue.use(MaterialKit);
 
 const NavbarStore = {
@@ -36,5 +40,6 @@ Vue.mixin({
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");

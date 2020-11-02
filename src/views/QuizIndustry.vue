@@ -11,19 +11,23 @@
               <h2 class="title text-center">
                 Which industry are you interested in?
               </h2>
-              <select class="dropdown" v-model="industry" @click="addIndustry()">
+              <select
+                class="dropdown"
+                v-model="industry"
+                @click="addIndustry()"
+              >
                 <option v-for="item in industryList" :key="item">
                   {{ item }}
                 </option>
               </select>
-              <br><br>{{"Your chosen industry: " + industry}}
+              <br /><br />{{ "Your chosen industry: " + industry }}
             </div>
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <div class="md-layout">
                 <div
                   class="md-layout-item md-size-50 md-small-size-100 text-left"
                 >
-                  <md-button href="/quiz/lifestage" class="md-danger">
+                  <md-button to="/quiz/lifestage" class="md-danger">
                     Back
                   </md-button>
                 </div>
@@ -32,7 +36,7 @@
                 >
                   <md-button
                     v-if="this.industry != ''"
-                    href="/quiz/skillset"
+                    to="/quiz/skillset"
                     class="md-success"
                   >
                     Next
@@ -66,7 +70,7 @@
 </template>
 
 <script>
-import database from '../firebase.js'
+import database from "../firebase.js";
 
 export default {
   bodyClass: "quiz-industry-page",
@@ -117,26 +121,37 @@ export default {
   },
   methods: {
     fetchIndustries: function() {
-      database.collection("industries").get().then((querySnapShot) => {
-        querySnapShot.forEach(doc => {
-          this.industryList.push(doc.data().Name)
-        })
-      })
+      database
+        .collection("industries")
+        .get()
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
+            this.industryList.push(doc.data().Name);
+          });
+        });
     },
 
     addIndustry: function() {
-      database.collection("users").add({
-            industry : this.industry
-            }).then(docRef => {
-                console.log(docRef.id);
-                this.docID = docRef.id;
-                });
-        console.log("created doc");
-    }
+      this.$store.commit("changeIndustry", this.industry);
+      console.log("industry is:");
+      console.log(this.$store.state.industry);
+      console.log("lifestage is:");
+      console.log(this.$store.getters.lifestage);
+      database
+        .collection("users")
+        .add({
+          industry: this.industry,
+        })
+        .then((docRef) => {
+          console.log(docRef.id);
+          this.docID = docRef.id;
+        });
+      console.log("created doc");
+    },
   },
   created() {
-    this.fetchIndustries()
-  }
+    this.fetchIndustries();
+  },
 };
 </script>
 
