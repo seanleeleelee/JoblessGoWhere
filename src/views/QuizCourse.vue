@@ -16,13 +16,18 @@
                 multiple courses.
               </div>
               <br />
-              <select class="dropdown" v-model="text" multiple>
+              <select
+                class="dropdown"
+                v-model="selectedCourses"
+                multiple
+                @click="addCourses()"
+              >
                 <option v-for="course in courseList" :key="course">
                   {{ course }}
                 </option>
               </select>
               <br /><br />{{
-                "You have completed the following courses: " + text
+                "You have completed the following courses: " + selectedCourses
               }}
             </div>
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
@@ -30,14 +35,14 @@
                 <div
                   class="md-layout-item md-size-50 md-small-size-100 text-left"
                 >
-                  <md-button href="/quiz/skillset" class="md-danger">
+                  <md-button to="/quiz/skillset" class="md-danger">
                     Back
                   </md-button>
                 </div>
                 <div
                   class="md-layout-item md-size-50 md-small-size-100 text-right"
                 >
-                  <md-button href="/RecommendedPage" class="md-success">
+                  <md-button to="/RecommendedPage" class="md-success">
                     Next
                   </md-button>
                 </div>
@@ -48,7 +53,7 @@
                 <div class="md-layout">
                   <div class="md-layout-item md-size-100 md-xsmall-size-100">
                     <md-progress-bar
-                      v-if="this.text == ''"
+                      v-if="!this.selectedCourses.length"
                       class="md-success"
                       :md-value="75"
                     ></md-progress-bar>
@@ -76,38 +81,55 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg"),
-    },
+      default: require("@/assets/img/city-profile.jpg")
+    }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   data() {
     return {
-      text: "",
-      courseList: [],
+      selectedCourses: [],
+      courseList: []
     };
   },
   methods: {
     fetchCourses: function() {
       database
         .collection("courses")
+        .orderBy("Name")
         .get()
-        .then((querySnapShot) => {
-          querySnapShot.forEach((doc) => {
-            // still need to filter based on industry
+        .then(querySnapShot => {
+          querySnapShot.forEach(doc => {
             this.courseList.push(doc.data().Name);
           });
         });
     },
+    addCourses: function() {
+      this.$store.commit("addCourses", this.selectedCourses);
+      database
+        .collection("users")
+        .add({
+          skillsets: this.selectedCourses
+        })
+        .then(docRef => {
+          this.docID = docRef.id;
+        });
+      console.log("updated doc");
+    },
+    removeDuplicates: function() {
+      this.courseList = [...new Set(this.courseList)];
+      console.log("Removed Duplicates");
+    }
   },
   created() {
     this.fetchCourses();
-  },
+    this.removeDuplicates();
+  }
 };
 </script>
 

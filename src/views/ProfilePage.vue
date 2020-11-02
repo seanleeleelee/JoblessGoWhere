@@ -242,7 +242,7 @@ export default {
       lifestage: null,
       amount: 30,
       amount2: 20,
-      amount3: 80,
+      amount3: 80
     };
   }
 };

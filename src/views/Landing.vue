@@ -1,5 +1,4 @@
 <template>
-
   <div class="wrapper">
     <parallax class="section page-header header-filter" :style="headerStyle">
       <div class="container">
@@ -7,23 +6,20 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">Upgrade your career </h1>
+            <h1 class="title">Upgrade your career</h1>
             <h3>
               Discover online courses to develop your professional skillsets.
             </h3>
             <br />
-            <md-button
-              href="/quiz/lifestage"
-              class="md-success md-lg"
-            >
-              <i class="fas fa-play"></i> 
+            <md-button href="/quiz/lifestage" class="md-success md-lg">
+              <i class="fas fa-play"></i>
               Get Started
             </md-button>
           </div>
         </div>
       </div>
     </parallax>
-    
+
     <div class="main main-raised">
       <div class="section">
         <div class="container">
@@ -33,8 +29,10 @@
             >
               <h2 class="title text-center">Times are tough</h2>
               <h4 class="description">
-                There are many resources and courses available for this on various platforms like SkillsFuture and Coursera. Despite the plethora of choices
-                 online and offline, people may be unsure of which courses are applicable or useful to their industry. 
+                There are many resources and courses available for this on
+                various platforms like SkillsFuture and Coursera. Despite the
+                plethora of choices online and offline, people may be unsure of
+                which courses are applicable or useful to their industry.
               </h4>
             </div>
           </div>
@@ -47,7 +45,8 @@
                   </div>
                   <h4 class="info-title">Discover yourself</h4>
                   <p>
-                    Complete our onboarding quiz to let us know what industries you are interested in.
+                    Complete our onboarding quiz to let us know what industries
+                    you are interested in.
                   </p>
                 </div>
               </div>
@@ -58,7 +57,9 @@
                   </div>
                   <h4 class="info-title">Fill in the gaps</h4>
                   <p>
-                    Our proprietary algorithm will recommend a personalized collection of online learning resources that is tailored to your career path.
+                    Our proprietary algorithm will recommend a personalized
+                    collection of online learning resources that is tailored to
+                    your career path.
                   </p>
                 </div>
               </div>
@@ -81,7 +82,12 @@
         <div class="container">
           <div class="md-layout-item">
             <div class="frame">
-              <iframe width="1500" height = "100%" src="https://data.gov.sg/dataset/job-vacancy-by-industry-and-occupational-group-quarterly/resource/3ba4be1b-b954-4db8-9c0f-d7a3745f8294/view/754efe9d-4577-45a1-8152-68aa5897632b" frameBorder="0"></iframe>
+              <iframe
+                width="1500"
+                height="100%"
+                src="https://data.gov.sg/dataset/job-vacancy-by-industry-and-occupational-group-quarterly/resource/3ba4be1b-b954-4db8-9c0f-d7a3745f8294/view/754efe9d-4577-45a1-8152-68aa5897632b"
+                frameBorder="0"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -104,12 +110,14 @@
                     <h4 class="card-title">
                       Cai Shuhang
                       <br />
-                      <small class="card-description text-muted">Scrum Master</small>
+                      <small class="card-description text-muted"
+                        >Scrum Master</small
+                      >
                     </h4>
 
                     <md-card-content>
                       <p class="card-description">
-                        Def not sus 
+                        Def not sus
                       </p>
                     </md-card-content>
 
@@ -124,7 +132,7 @@
                   </md-card>
                 </div>
               </div>
-              
+
               <div class="md-layout-item md-medium-size-50 md-small-size-100">
                 <div class="team-player">
                   <md-card class="md-card-plain">
@@ -138,15 +146,16 @@
                     <h4 class="card-title">
                       Callie Cheong
                       <br />
-                      <small class="card-description text-muted">Def not imposter</small>
+                      <small class="card-description text-muted"
+                        >Def not imposter</small
+                      >
                     </h4>
 
                     <md-card-content>
                       <p class="card-description">
-                        Red killed me 
+                        Red killed me
                       </p>
                     </md-card-content>
-
                   </md-card>
                 </div>
               </div>
@@ -182,7 +191,6 @@
                         <i class="fab fa-linkedin"></i>
                       </md-button>
                     </md-card-actions>
-
                   </md-card>
                 </div>
               </div>
@@ -199,7 +207,9 @@
                     <h4 class="card-title">
                       Ashley Ho
                       <br />
-                      <small class="card-description text-muted">Imposter</small>
+                      <small class="card-description text-muted"
+                        >Imposter</small
+                      >
                     </h4>
 
                     <md-card-content>
@@ -208,9 +218,7 @@
                       </p>
                     </md-card-content>
 
-                    <md-card-actions class="text-center">
-
-                    </md-card-actions>
+                    <md-card-actions class="text-center"> </md-card-actions>
                   </md-card>
                 </div>
               </div>
@@ -219,13 +227,11 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
 export default {
-  
   bodyClass: "landing-page",
   props: {
     header: {

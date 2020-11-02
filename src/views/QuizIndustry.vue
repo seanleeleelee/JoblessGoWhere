@@ -38,7 +38,6 @@
                     v-if="this.industry != ''"
                     to="/quiz/skillset"
                     class="md-success"
-                    @click="addIndustry"
                   >
                     Next
                   </md-button>
@@ -71,23 +70,22 @@
 </template>
 
 <script>
-import database from '../firebase.js'
-import { serverBus } from '../main.js';
+import database from "../firebase.js";
 
 export default {
   bodyClass: "quiz-industry-page",
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg"),
-    },
+      default: require("@/assets/img/city-profile.jpg")
+    }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   data() {
     return {
@@ -100,42 +98,30 @@ export default {
     fetchIndustries: function() {
       database
         .collection("industries")
+        .orderBy("Name")
         .get()
-        .then((querySnapShot) => {
-          querySnapShot.forEach((doc) => {
+        .then(querySnapShot => {
+          querySnapShot.forEach(doc => {
             this.industryList.push(doc.data().Name);
           });
         });
     },
-
     addIndustry: function() {
       this.$store.commit("changeIndustry", this.industry);
-      console.log("industry is:");
-      console.log(this.$store.state.industry);
-      console.log("lifestage is:");
-      console.log(this.$store.getters.lifestage);
       database
         .collection("users")
         .add({
-          industry: this.industry,
+          industry: this.industry
         })
-        .then((docRef) => {
-          console.log(docRef.id);
+        .then(docRef => {
           this.docID = docRef.id;
         });
-      console.log("created doc");
-    },
-    created() {
-      this.fetchIndustries();
-      serverBus.$on('createdDoc', (data) => {
-        this.docID = data;
-        database.collection("users").doc(this.docID).update({
-        industry : this.industry
-        })
-      })
-      console.log("updated doc");
-      console.log(this.docID);
+      console.log("Updated user industry with: " + this.industry);
     }
+  },
+  created() {
+    this.fetchIndustries();
+    console.log("Retrieved Industries");
   }
 };
 </script>

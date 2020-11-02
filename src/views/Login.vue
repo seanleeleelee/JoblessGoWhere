@@ -49,7 +49,6 @@
               <md-button slot="footer" class="md-simple md-success md-lg">
                 Get Started
               </md-button>
-              
             </login-card>
           </div>
         </div>

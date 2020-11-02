@@ -26,8 +26,14 @@ export const store = new Vuex.Store({
       state.industry = industry;
       this.commit("saveIndustry");
     },
-    addCourse(state, courses) {},
-    addSkillsets(state, skillsets) {},
+    addSkillsets(state, skillsets) {
+      state.skillsets = skillsets;
+      this.commit("saveskillsets");
+    },
+    addCourses(state, courses) {
+      state.course = courses;
+      this.commit("saveCourse");
+    },
     saveLifestage(state) {
       window.localStorage.setItem("lifestage", state.lifestage);
     },
@@ -40,8 +46,5 @@ export const store = new Vuex.Store({
     saveSkillsets(state) {
       window.localStorage.setItem("skillsets", state.skillsets);
     }
-  },
-  getters: {
-    lifestage: state => state.lifestage
   }
 });

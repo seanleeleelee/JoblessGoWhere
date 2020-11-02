@@ -115,44 +115,44 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg"),
+      default: require("@/assets/img/city-profile.jpg")
     },
     dataAnalyticsImg: {
       type: String,
-      default: require("@/assets/img/python.jpeg"),
+      default: require("@/assets/img/python.jpeg")
     },
     gaImg: {
       type: String,
-      default: require("@/assets/img/profile/google-analytics.svg"),
+      default: require("@/assets/img/profile/google-analytics.svg")
     },
     SEOimg: {
       type: String,
-      default: require("@/assets/img/seo.jpg"),
+      default: require("@/assets/img/seo.jpg")
     },
     midCareerImg4: {
       type: String,
-      default: require("@/assets/img/GoogleAnalytics.png"),
-    },
+      default: require("@/assets/img/GoogleAnalytics.png")
+    }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   data() {
     return {
       lifestage: null,
       min: 40,
-      max: 90,
+      max: 90
     };
   },
   methods: {
     generateNumber: function() {
       return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-    },
-  },
+    }
+  }
 };
 </script>
 
