@@ -16,23 +16,14 @@
 
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
-                <label>Username / Email ...</label>
-                <md-input
-                  id="name"
-                  v-model="name"
-                  type="text"
-                  required
-                ></md-input>
+                <label>Email </label>
+                <md-input id="name" v-model="email" type="text"></md-input>
               </md-field>
 
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>Password...</label>
-                <md-input
-                  type="password"
-                  v-model="password"
-                  required
-                ></md-input>
+                <md-input type="password" v-model="password"></md-input>
               </md-field>
 
               <div slot="errors" class="errors" v-if="errors.length">
@@ -44,17 +35,18 @@
               </div>
 
               <md-button
-                href="/ProfilePage"
                 slot="footer"
                 class="md-simple md-success md-lg"
-                v-on:click="checkForm"
+                v-on:click="login"
               >
                 Login
               </md-button>
 
               <div slot="other" class="other">
                 New member?
-                <a href="/quiz/lifestage">Get started on the quiz instead?</a>
+                <router-link to="/quiz/lifestage"
+                  >Get started on the quiz instead?</router-link
+                >
               </div>
             </login-card>
           </div>
@@ -66,6 +58,8 @@
 
 <script>
 import { LoginCard } from "@/components";
+import database from "../firebase.js";
+import firebase from "firebase";
 
 export default {
   components: {
@@ -74,18 +68,18 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-      name: null,
+      username: null,
       email: null,
       password: null,
       errors: []
     };
   },
   methods: {
-    checkForm: function(e) {
+    login: function(e) {
       this.errors = [];
 
-      if (!this.name) {
-        this.errors.push("Name required.");
+      if (!this.email) {
+        this.errors.push("Email required");
       }
 
       if (!this.password) {
@@ -93,9 +87,16 @@ export default {
       }
 
       if (!this.errors.length) {
-        return true;
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(user => {
+            this.$router.push("/ProfilePage");
+          })
+          .catch(error => {
+            this.errors.push(error);
+          });
       }
-
       e.preventDefault();
     }
   },

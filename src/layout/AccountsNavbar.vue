@@ -10,9 +10,7 @@
       <div class="md-toolbar-section-start">
         <p class="md-title">JoblessGoWhere</p>
       </div>
-      <div class="md-toolbar-section-start">
-        <div class="md-collapse">
-          <div class="md-autocomplete">
+      <div class="md-toolbar-section-center">
             <md-autocomplete
               class="search"
               v-model="selectedEmployee"
@@ -20,8 +18,12 @@
             >
               <label>Search...</label>
             </md-autocomplete>
-          </div>
-        </div>
+      </div>
+      <div class="md-toolbar-section-end">
+        <md-list-item v-on:click="signOut">
+            <md-icon>face</md-icon>
+            <p>Logout</p>
+        </md-list-item>
       </div>
     </div>
   </md-toolbar>
@@ -40,6 +42,8 @@ function resizeThrottler(actualResizeHandler) {
     }, 66);
   }
 }
+
+import firebase from "firebase";
 
 export default {
   components: {},
@@ -69,6 +73,7 @@ export default {
       extraNavClasses: "",
       toggledClass: false,
       selectedEmployee: null,
+      loggedIn:false,
       employees: [
         "Jim Halpert",
         "Dwight Schrute",
@@ -131,10 +136,22 @@ export default {
       if (element_id) {
         element_id.scrollIntoView({ block: "end", behavior: "smooth" });
       }
+    },
+    signOut: function(e){
+      firebase
+        .auth()
+        .signOut()
+        .then(user =>
+          this.$router.push("/"))
     }
   },
   mounted() {
     document.addEventListener("scroll", this.scrollListener);
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        this.loggedIn = true;
+      }
+    })
   },
   beforeDestroy() {
     document.removeEventListener("scroll", this.scrollListener);
