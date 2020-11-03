@@ -36,6 +36,9 @@ export const store = new Vuex.Store({
     addCourses(state, courses) {
       state.user.course = courses;
     },
+    addRecommended(state, recommendedCourses) {
+      state.user.recommendedCourses = recommendedCourses;
+    },
     saveLifestage(state) {
       window.localStorage.setItem("lifestage", state.user.lifestage);
     },
