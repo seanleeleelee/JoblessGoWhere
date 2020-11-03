@@ -90,13 +90,15 @@ export default {
   data() {
     return {
       selectedSkills: [],
-      skillsList: []
+      skillsList: [],
+      industry: "Financial Services" //wishful thinking
     };
   },
   methods: {
     fetchSkillsets: function() {
       database
         .collection("courses")
+        .where("Industry", "==", this.industry)
         .orderBy("Skillset")
         .get()
         .then(querySnapShot => {
