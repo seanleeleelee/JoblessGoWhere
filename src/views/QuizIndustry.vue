@@ -14,7 +14,6 @@
               <select
                 class="dropdown"
                 v-model="industry"
-                @click="addIndustry()"
               >
                 <option v-for="item in industryList" :key="item">
                   {{ item }}
@@ -25,19 +24,19 @@
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <div class="md-layout">
                 <div
-                  class="md-layout-item md-size-50 md-small-size-100 text-left"
+                  class="md-layout-item md-size-33 md-small-size-100 text-left"
                 >
                   <md-button to="/quiz/lifestage" class="md-danger">
                     Back
                   </md-button>
                 </div>
                 <div
-                  class="md-layout-item md-size-50 md-small-size-100 text-right"
+                  class="md-layout-item md-size-33 md-small-size-100 text-right"
                 >
                   <md-button
                     v-if="this.industry != ''"
-                    to="/quiz/skillset"
                     class="md-success"
+                    v-on:click="addIndustry()"
                   >
                     Next
                   </md-button>
@@ -85,10 +84,11 @@ export default {
       return {
         backgroundImage: `url(${this.header})`
       };
-    }
+    },
   },
   data() {
     return {
+      lifestage: "",
       industry: "",
       industryList: [],
       docID: ""
@@ -108,20 +108,14 @@ export default {
     },
     addIndustry: function() {
       this.$store.commit("changeIndustry", this.industry);
-      database
-        .collection("users")
-        .add({
-          industry: this.industry
-        })
-        .then(docRef => {
-          this.docID = docRef.id;
-        });
-      console.log("Updated user industry with: " + this.industry);
+      this.$router.push({path : "/quiz/skillset"});
+      console.log("Updated user industry with: " + this.industry + this.lifestage);
     }
   },
   created() {
     this.fetchIndustries();
-    console.log("Retrieved Industries");
+    this.lifestage = this.$store.state.user.lifestage;
+    console.log("Retrieved Industries" + this.lifestage);
   }
 };
 </script>

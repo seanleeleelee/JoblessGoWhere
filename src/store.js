@@ -12,39 +12,41 @@ let skillsets = window.localStorage.getItem("skillsets");
 
 export const store = new Vuex.Store({
   state: {
-    lifestage: lifestage ? lifestage : "",
-    industry: industry ? industry : "",
-    course: course ? course : [],
-    skillsets: skillsets ? skillsets : []
+    user: {
+      lifestage: "",
+      industry: "",
+      skillsets: [],
+      course: [],
+      name: "",
+      password: "",
+      email: "",
+      recommendedCourses: []
+    }
   },
   mutations: {
     changeLifestage(state, lifestage) {
-      state.lifestage = lifestage;
-      this.commit("saveLifestage");
+      state.user.lifestage = lifestage;
     },
     changeIndustry(state, industry) {
-      state.industry = industry;
-      this.commit("saveIndustry");
+      state.user.industry = industry;
     },
     addSkillsets(state, skillsets) {
-      state.skillsets = skillsets;
-      this.commit("saveskillsets");
+      state.user.skillsets = skillsets;
     },
     addCourses(state, courses) {
-      state.course = courses;
-      this.commit("saveCourse");
+      state.user.course = courses;
     },
     saveLifestage(state) {
-      window.localStorage.setItem("lifestage", state.lifestage);
+      window.localStorage.setItem("lifestage", state.user.lifestage);
     },
     saveIndustry(state) {
-      window.localStorage.setItem("industry", state.industry);
+      window.localStorage.setItem("industry", state.user.industry);
     },
     saveCourse(state) {
-      window.localStorage.setItem("course", state.course);
+      window.localStorage.setItem("course", state.user.course);
     },
     saveSkillsets(state) {
-      window.localStorage.setItem("skillsets", state.skillsets);
+      window.localStorage.setItem("skillsets", state.user.skillsets);
     }
   }
 });
