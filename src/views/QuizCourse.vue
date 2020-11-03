@@ -94,13 +94,15 @@ export default {
   data() {
     return {
       selectedCourses: [],
-      courseList: []
+      courseList: [],
+      industry: "Financial Services" //wishful thinking
     };
   },
   methods: {
     fetchCourses: function() {
       database
         .collection("courses")
+        .where("Industry", "==", this.industry)
         .orderBy("Name")
         .get()
         .then(querySnapShot => {

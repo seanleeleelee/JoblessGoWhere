@@ -235,6 +235,7 @@ export default {
       })
       .then(docRef => {
         this.docID = docRef.id;
+        console.log(docRef.id);
       });
     console.log("Initialized new user in DB");
   },
