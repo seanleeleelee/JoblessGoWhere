@@ -24,14 +24,14 @@
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <div class="md-layout">
                 <div
-                  class="md-layout-item md-size-33 md-small-size-100 text-left"
+                  class="md-layout-item md-size-50 md-small-size-100 text-left"
                 >
                   <md-button to="/quiz/lifestage" class="md-danger">
                     Back
                   </md-button>
                 </div>
                 <div
-                  class="md-layout-item md-size-33 md-small-size-100 text-right"
+                  class="md-layout-item md-size-50 md-small-size-100 text-right"
                 >
                   <md-button
                     v-if="this.industry != ''"

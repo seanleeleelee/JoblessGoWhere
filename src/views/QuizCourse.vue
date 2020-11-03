@@ -20,7 +20,6 @@
                 class="dropdown"
                 v-model="selectedCourses"
                 multiple
-                @click="addCourses()"
               >
                 <option v-for="course in courseList" :key="course">
                   {{ course }}
@@ -42,7 +41,7 @@
                 <div
                   class="md-layout-item md-size-50 md-small-size-100 text-right"
                 >
-                  <md-button to="/RecommendedPage" class="md-success">
+                  <md-button class="md-success" v-on:click="addCourses()">
                     Next
                   </md-button>
                 </div>
@@ -95,7 +94,8 @@ export default {
     return {
       selectedCourses: [],
       courseList: [],
-      industry: "Financial Services" //wishful thinking
+      industry: "",
+      selectedSkills: [] //no more wishful thinking
     };
   },
   methods: {
@@ -103,7 +103,6 @@ export default {
       database
         .collection("courses")
         .where("Industry", "==", this.industry)
-        .orderBy("Name")
         .get()
         .then(querySnapShot => {
           querySnapShot.forEach(doc => {
@@ -113,15 +112,8 @@ export default {
     },
     addCourses: function() {
       this.$store.commit("addCourses", this.selectedCourses);
-      database
-        .collection("users")
-        .add({
-          skillsets: this.selectedCourses
-        })
-        .then(docRef => {
-          this.docID = docRef.id;
-        });
-      console.log("updated doc");
+      this.$router.push({path : "/RecommendedPage"});
+      console.log("Selected courses: " + this.selectedCourses);
     },
     removeDuplicates: function() {
       this.courseList = [...new Set(this.courseList)];
@@ -129,8 +121,12 @@ export default {
     }
   },
   created() {
+    //this.lifestage = this.$store.state.user.lifestage;
+    this.industry = this.$store.state.user.industry;
+    this.selectedSkills = this.$store.state.user.skillsets;
     this.fetchCourses();
     this.removeDuplicates();
+
   }
 };
 </script>

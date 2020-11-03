@@ -18,7 +18,6 @@
                 class="dropdown"
                 v-model="selectedSkills"
                 multiple
-                @click="addSkillsets()"
               >
                 <option v-for="skill in skillsList" :key="skill">
                   {{ skill }}
@@ -38,7 +37,7 @@
                 <div
                   class="md-layout-item md-size-50 md-small-size-100 text-right"
                 >
-                  <md-button to="/quiz/course" class="md-success">
+                  <md-button class="md-success" v-on:click="addSkillsets()">
                     Next
                   </md-button>
                 </div>
@@ -91,7 +90,8 @@ export default {
     return {
       selectedSkills: [],
       skillsList: [],
-      industry: "Financial Services" //wishful thinking
+      industry: "", // no more wishful thinking
+      lifestage: "",
     };
   },
   methods: {
@@ -109,18 +109,14 @@ export default {
     },
     addSkillsets: function() {
       this.$store.commit("addSkillsets", this.selectedSkills);
-      database
-        .collection("users")
-        .add({
-          skillsets: this.selectedSkills
-        })
-        .then(docRef => {
-          this.docID = docRef.id;
-        });
-      console.log("updated doc");
+      this.$router.push({path : "/quiz/course"});
+      console.log("updated doc" + this.selectedSkills);
     }
   },
   created() {
+    this.lifestage = this.$store.state.user.lifestage;
+    this.industry = this.$store.state.user.industry;
+    console.log("Retrieved Skillsets" + this.industry);
     this.fetchSkillsets();
   }
 };
