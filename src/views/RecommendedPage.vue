@@ -110,6 +110,8 @@
 </template>
 
 <script>
+import database from "../firebase.js";
+
 export default {
   bodyClass: "quiz-lifestage-page",
   props: {
@@ -143,7 +145,11 @@ export default {
   },
   data() {
     return {
-      lifestage: null,
+      industry: "",
+      lifestage: "",
+      selectedSkills: [],
+      selectedCourses: [],
+      recommendedCourses:[],
       min: 40,
       max: 90
     };
@@ -151,7 +157,28 @@ export default {
   methods: {
     generateNumber: function() {
       return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+    },
+    fetchRecommended: function() {
+      database
+        .collection("courses")
+        .where("Industry", "==", this.industry)
+        .where("Skillset", "not-in", this.selectedSkills) // still need to filter from selectedCourse
+        .get()
+        .then(querySnapShot => {
+          querySnapShot.forEach(doc => {
+            this.recommendedCourses.push(doc.data().Name);
+          });
+        });
     }
+  },
+  created() {
+    this.industry = this.$store.state.user.industry;
+    this.lifestage = this.$store.state.user.lifestage;
+    this.selectedSkills = this.$store.state.user.skillsets;
+    this.selectedCourses = this.$store.state.user.course;
+    this.fetchRecommended();
+    console.log("Recommended Courses: " + this.recommendedCourses);
+    this.$store.commit("addRecommended", this.recommendedCourses);
   }
 };
 </script>
