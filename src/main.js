@@ -18,6 +18,8 @@ import Vuex from "vuex";
 import App from "./App.vue";
 import router from "./router";
 import { store } from "./store";
+import firebase from 'firebase';
+
 
 import MaterialKit from "./plugins/material-kit";
 
@@ -40,8 +42,23 @@ Vue.mixin({
 
 export const serverBus = new Vue();
 
+//refreshed in logged in user will not redirect to loginpage
+let app;
+firebase.auth().onAuthStateChanged(user => {
+  if(!app) {
+    app = new Vue({
+      el: '#app' ,
+      router,
+      store,
+      render: h => h(App)
+      }).$mount("#app");
+    
+  }
+});
+/*
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount("#app");
+*/
