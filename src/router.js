@@ -15,10 +15,11 @@ import AccountsNavbar from "./layout/AccountsNavbar.vue";
 import ProfilePage from "./views/ProfilePage.vue";
 import QuizSkillset from "./views/QuizSkillset.vue";
 import QuizCourse from "./views/QuizCourse.vue";
+import firebase from "firebase";
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: "/",
@@ -45,7 +46,7 @@ export default new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
-      }
+      },
     },
     {
       path: "/LoginPage",
@@ -54,7 +55,7 @@ export default new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
-      }
+      },
     },
     {
       path: "/login",
@@ -125,9 +126,13 @@ export default new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
+      },
+      meta: {
+        requiresAuth: true
       }
     }
   ],
+
   scrollBehavior: to => {
     if (to.hash) {
       return { selector: to.hash };
@@ -137,3 +142,43 @@ export default new Router({
   },
   mode: "history"
 });
+
+//Nav Guards
+router.beforeEach((to,from,next) => {
+  //check for requiredAuth guard
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    //check if not logged in
+    if(!firebase.auth().currentUser) {
+      // Go to login
+      next({
+        path: '/LoginPage',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      // Proceed to route
+      next();
+    }
+  } else if (to.matched.some(record => record.meta.requiresGuest)) {
+    //check if logged in
+    if(!firebase.auth().currentUser) {
+      // Go to login
+      next({
+        path: '/',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      // Proceed to route
+      next();
+    }
+  } else {
+    // Proceed to route
+    next();
+  }
+  
+});
+
+export default router;

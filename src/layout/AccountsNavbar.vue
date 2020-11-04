@@ -10,6 +10,7 @@
       <div class="md-toolbar-section-start">
         <p class="md-title">JoblessGoWhere</p>
       </div>
+
       <div class="md-toolbar-section-center">
             <md-autocomplete
               class="search"
@@ -19,12 +20,16 @@
               <label>Search...</label>
             </md-autocomplete>
       </div>
+
       <div class="md-toolbar-section-end">
         <md-list-item v-on:click="signOut">
+          <div class ="md-title" >
             <md-icon>face</md-icon>
-            <p>Logout</p>
+            <h6 class="md-list-item-content">Logout</h6>
+          </div>
         </md-list-item>
       </div>
+
     </div>
   </md-toolbar>
 </template>
