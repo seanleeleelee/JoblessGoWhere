@@ -19,7 +19,7 @@
                 <label>Username...</label>
                 <md-input
                   id="name"
-                  v-model="name"
+                  v-model="username"
                   type="text"
                   required
                 ></md-input>
@@ -67,10 +67,9 @@
               </div>
 
               <md-button
-                href="/RecommendedPage"
                 slot="footer"
                 class="md-simple md-success md-lg"
-                v-on:click="checkForm"
+                v-on:click="register"
               >
                 Sign up
               </md-button>
@@ -84,6 +83,8 @@
 
 <script>
 import { LoginCard } from "@/components";
+import database from "../firebase.js";
+import firebase from "firebase";
 
 export default {
   components: {
@@ -92,20 +93,24 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-      name: null,
+      username: null,
       email: null,
       password: null,
       confirmPassword: null,
-      errors: []
+      errors: [],
+      user: null
     };
   },
   methods: {
-    checkForm: function(e) {
+    register: function(e) {
       this.errors = [];
 
-      if (!this.name) {
-        this.errors.push("Name required.");
+      if (!this.username) {
+        this.errors.push("Username required.");
       }
+      /*if(this.username && !this.existingUser()) {
+        this.errors.push("Username Taken");
+      }*/
       if (!this.email) {
         this.errors.push("Email required.");
       } else if (!this.validEmail(this.email)) {
@@ -121,9 +126,16 @@ export default {
       }
 
       if (!this.errors.length) {
-        return true;
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(user => {
+            this.$router.push("/ProfilePage");
+          })
+          .catch(error => {
+            this.errors.push(error);
+          });
       }
-
       e.preventDefault();
     },
     validEmail: function(email) {
