@@ -16,7 +16,8 @@
             <div class="md-layout-item md-size-35 md-small-size-100">
               <md-card>
                 <md-card-content class="text-center">
-                  <h2>Welcome Ashley</h2>
+                  <h2>Welcome {{ userName }}</h2>
+                  <p>{{ userEmail }}</p>
                   <div class="md-layout-item md-size-70 mx-auto text-center">
                     <div class="avatar ">
                       <img
@@ -197,6 +198,9 @@
 </template>
 
 <script>
+import firebase from "firebase";
+import database from "../firebase.js";
+
 export default {
   bodyClass: "quiz-lifestage-page",
 
@@ -242,8 +246,32 @@ export default {
       lifestage: null,
       amount: 30,
       amount2: 20,
-      amount3: 80
+      amount3: 80,
+      userEmail: firebase.auth().currentUser.email,
+      userName: ""
     };
+  },
+  methods: {
+    /*getUsername(email) {
+      return database
+        .collection("Users")
+        .where("email", "==", this.userEmail)
+        .get()
+        .then(user => {
+          console.log(user.data().Username);
+          this.userName = user.data().Username;
+        });
+    }*/
+  },
+  created() {
+    /*database
+      .collection("Users")
+      .where("email", "==", this.userEmail)
+      .get()
+      .then(user => {
+        console.log(user.data().Username);
+        this.userName = user.data().Username;
+      });*/
   }
 };
 </script>

@@ -18,8 +18,6 @@ export const store = new Vuex.Store({
       skillsets: [],
       course: [],
       username: "",
-      password: "",
-      email: "",
       recommendedCourses: []
     }
   },
