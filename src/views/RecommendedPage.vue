@@ -98,7 +98,7 @@
                   </div>
                 </div>
               </div>
-              <md-button href="/SignUp" class="md-success md-lg">
+              <md-button to="/SignUp" class="md-success md-lg">
                 Save Recommendation
               </md-button>
             </div>
