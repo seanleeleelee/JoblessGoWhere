@@ -46,7 +46,7 @@ let router = new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
-      },
+      }
     },
     {
       path: "/LoginPage",
@@ -55,7 +55,7 @@ let router = new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
-      },
+      }
     },
     {
       path: "/login",
@@ -144,14 +144,14 @@ let router = new Router({
 });
 
 //Nav Guards
-router.beforeEach((to,from,next) => {
+router.beforeEach((to, from, next) => {
   //check for requiredAuth guard
-  if(to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
     //check if not logged in
-    if(!firebase.auth().currentUser) {
+    if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: '/LoginPage',
+        path: "/LoginPage",
         query: {
           redirect: to.fullPath
         }
@@ -162,10 +162,10 @@ router.beforeEach((to,from,next) => {
     }
   } else if (to.matched.some(record => record.meta.requiresGuest)) {
     //check if logged in
-    if(!firebase.auth().currentUser) {
+    if (!firebase.auth().currentUser) {
       // Go to login
       next({
-        path: '/',
+        path: "/",
         query: {
           redirect: to.fullPath
         }
@@ -178,7 +178,6 @@ router.beforeEach((to,from,next) => {
     // Proceed to route
     next();
   }
-  
 });
 
 export default router;

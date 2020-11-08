@@ -97,14 +97,13 @@ export default {
       email: null,
       password: null,
       confirmPassword: null,
-      errors: [],
+      errors: []
       /*
       lifestage: '' ,
       industry: '',
       skillsets: [],
       course: [],
       recommendedCourses : [],*/
-
     };
   },
   methods: {
@@ -137,16 +136,18 @@ export default {
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(user => {
             return database
-            .collection('users')
-            .doc(user.user.uid).set({
-              username:this.username,
-              lifestage: this.$store.state.user.lifestage ,
-              industry: this.$store.state.user.industry,
-              skillsets: this.$store.state.user.skillsets,
-              course: this.$store.state.user.course,
-              recommendedcourses: this.$store.state.user.recommendedCourses
-            });
-          }).then(() => {
+              .collection("users")
+              .doc(user.user.uid)
+              .set({
+                username: this.username,
+                lifestage: this.$store.state.user.lifestage,
+                industry: this.$store.state.user.industry,
+                skillsets: this.$store.state.user.skillsets,
+                course: this.$store.state.user.course,
+                recommendedcourses: this.$store.state.user.recommendedCourses
+              });
+          })
+          .then(() => {
             this.$router.push("/ProfilePage");
           })
           .catch(error => {
@@ -155,8 +156,8 @@ export default {
       }
 
       e.preventDefault();
-          
-            /*
+
+      /*
             this.$router.push("/ProfilePage");
           })
           .catch(error => {
@@ -182,7 +183,7 @@ export default {
         backgroundImage: `url(${this.header})`
       };
     }
-  },
+  }
 };
 </script>
 

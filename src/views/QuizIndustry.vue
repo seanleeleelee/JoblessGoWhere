@@ -11,10 +11,7 @@
               <h2 class="title text-center">
                 Which industry are you interested in?
               </h2>
-              <select
-                class="dropdown"
-                v-model="industry"
-              >
+              <select class="dropdown" v-model="industry">
                 <option v-for="item in industryList" :key="item">
                   {{ item }}
                 </option>
@@ -84,7 +81,7 @@ export default {
       return {
         backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   data() {
     return {
@@ -108,8 +105,10 @@ export default {
     },
     addIndustry: function() {
       this.$store.commit("changeIndustry", this.industry);
-      this.$router.push({path : "/quiz/skillset"});
-      console.log("Updated user industry with: " + this.industry + this.lifestage);
+      this.$router.push({ path: "/quiz/skillset" });
+      console.log(
+        "Updated user industry with: " + this.industry + this.lifestage
+      );
     }
   },
   created() {
