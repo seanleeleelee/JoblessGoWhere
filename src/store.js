@@ -18,24 +18,59 @@ export const store = new Vuex.Store({
       skillsets: [],
       course: [],
       username: "",
-      recommendedCourses: []
+      recommendedCourses: [],
+      finalCourses: [],
+      defaultCourses: [
+        {
+          Name: "Data Analytics",
+          Difficulty: "Intermediate",
+          Image:
+            "https://www.smartdatacollective.com/wp-content/uploads/2018/11/top-7-data-analytics-tools-2019.jpg",
+          Industry: "ICT and Media",
+          Link: "https://www.coursera.org/learn/introduction-to-data-analytics",
+          Platform: "Coursera",
+          Skillset: "Data Analytics"
+        },
+        {
+          Name: "Google Analytics",
+          Difficulty: "Beginner",
+          Image: "https://www.flaticon.com/svg/static/icons/svg/732/732204.svg",
+          Industry: "ICT and Media",
+          Link: "https://analytics.google.com/analytics/web/",
+          Platform: "EDX",
+          Skillset: "Data Analytics"
+        },
+        {
+          Name: "SEO",
+          Difficulty: "Beginner",
+          Image:
+            "https://ocdigitalnetwork.com/wp-content/uploads/2018/04/h3-image-2.png",
+          Industry: "ICT and Media",
+          Link: "https://www.coursera.org/specializations/seo",
+          Platform: "Coursera",
+          Skillset: "Online marketing"
+        }
+      ]
     }
   },
   mutations: {
-    changeLifestage(state, lifestage) {
-      state.user.lifestage = lifestage;
+    changeLifestage(state, payload) {
+      state.user.lifestage = payload;
     },
-    changeIndustry(state, industry) {
-      state.user.industry = industry;
+    changeIndustry(state, payload) {
+      state.user.industry = payload;
     },
-    addSkillsets(state, skillsets) {
-      state.user.skillsets = skillsets;
+    addSkillsets(state, payload) {
+      state.user.skillsets = payload;
     },
-    addCourses(state, courses) {
-      state.user.course = courses;
+    addCourses(state, payload) {
+      state.user.course = payload;
     },
-    addRecommended(state, recommendedCourses) {
-      state.user.recommendedCourses = recommendedCourses;
+    addRecommended(state, payload) {
+      state.user.recommendedCourses = payload;
+    },
+    addFinalCourses(state, payload) {
+      state.user.finalCourses = payload;
     },
     saveLifestage(state) {
       window.localStorage.setItem("lifestage", state.user.lifestage);

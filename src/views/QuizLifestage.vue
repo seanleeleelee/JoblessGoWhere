@@ -205,7 +205,6 @@ export default {
       this.lifestage = "Student";
       this.$store.commit("changeLifestage", this.lifestage);
       console.log("updated lifestage: " + this.lifestage);
-
     },
     onClickGrad() {
       this.lifestage = "Graduate";
@@ -221,7 +220,7 @@ export default {
       this.lifestage = "Experienced Professional";
       this.$store.commit("changeLifestage", this.lifestage);
       console.log("updated lifestage: " + this.lifestage);
-    },
+    }
   },
   created() {
     console.log("Initialized new user in DB");

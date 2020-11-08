@@ -16,11 +16,7 @@
                 multiple courses.
               </div>
               <br />
-              <select
-                class="dropdown"
-                v-model="selectedCourses"
-                multiple
-              >
+              <select class="dropdown" v-model="selectedCourses" multiple>
                 <option v-for="course in courseList" :key="course">
                   {{ course }}
                 </option>
@@ -112,7 +108,7 @@ export default {
     },
     addCourses: function() {
       this.$store.commit("addCourses", this.selectedCourses);
-      this.$router.push({path : "/RecommendedPage"});
+      this.$router.push({ path: "/RecommendedPage" });
       console.log("Selected courses: " + this.selectedCourses);
     },
     removeDuplicates: function() {
@@ -126,7 +122,6 @@ export default {
     this.selectedSkills = this.$store.state.user.skillsets;
     this.fetchCourses();
     this.removeDuplicates();
-
   }
 };
 </script>

@@ -14,11 +14,7 @@
                 multiple skills.
               </div>
               <br />
-              <select
-                class="dropdown"
-                v-model="selectedSkills"
-                multiple
-              >
+              <select class="dropdown" v-model="selectedSkills" multiple>
                 <option v-for="skill in skillsList" :key="skill">
                   {{ skill }}
                 </option>
@@ -91,7 +87,7 @@ export default {
       selectedSkills: [],
       skillsList: [],
       industry: "", // no more wishful thinking
-      lifestage: "",
+      lifestage: ""
     };
   },
   methods: {
@@ -109,7 +105,7 @@ export default {
     },
     addSkillsets: function() {
       this.$store.commit("addSkillsets", this.selectedSkills);
-      this.$router.push({path : "/quiz/course"});
+      this.$router.push({ path: "/quiz/course" });
       console.log("updated doc" + this.selectedSkills);
     }
   },
