@@ -28,7 +28,7 @@
                     </div>
                   </div>
                   <h3>
-                    Financial Service
+                    {{ industry }}
                   </h3>
                 </md-card-content>
               </md-card>
@@ -37,7 +37,7 @@
             <div class="md-layout-item md-size-65 md-small-size-100">
               <h2 class="title text-left">Course Mastery</h2>
               <div class="title">
-                <h3>Programming Methadology</h3>
+                <h3>{{ course1 }}</h3>
               </div>
               <md-progress-bar
                 class="md-success"
@@ -45,7 +45,7 @@
               ></md-progress-bar>
 
               <div class="title">
-                <h3>Programming Methadology II</h3>
+                <h3>{{ course2 }}</h3>
               </div>
               <md-progress-bar
                 class="md-success"
@@ -53,7 +53,7 @@
               ></md-progress-bar>
 
               <div class="title">
-                <h3>Data Structures And Algorithmns</h3>
+                <h3>{{ course3 }}</h3>
               </div>
               <md-progress-bar
                 class="md-success"
@@ -68,7 +68,7 @@
                     <md-card class="md-card-plain">
                       <div class="md-layout-item md-size-100 mx-auto">
                         <img
-                          :src="htmlImg"
+                          :src="course1_pic"
                           alt="Thumbnail Image"
                           class="img-raised rounded"
                         />
@@ -76,7 +76,7 @@
 
                       <md-card-content class="text-center">
                         <h4>
-                          HTML, CSS and JavaScript for Web Developers
+                          {{course1_name}}
                         </h4>
                       </md-card-content>
                     </md-card>
@@ -88,14 +88,14 @@
                     <md-card class="md-card-plain">
                       <div class="md-layout-item md-size-100 mx-auto">
                         <img
-                          :src="csImg"
+                          :src="course2_pic"
                           alt="Thumbnail Image"
                           class="img-raised rounded"
                         />
                       </div>
                       <md-card-content class="text-center">
                         <h4>
-                          Computer Science: Programming with a Purpose
+                          {{course2_name}}
                         </h4>
                       </md-card-content>
                     </md-card>
@@ -107,14 +107,14 @@
                     <md-card class="md-card-plain">
                       <div class="md-layout-item md-size-100 mx-auto">
                         <img
-                          :src="gaImg"
+                          :src="course3_pic"
                           alt="Thumbnail Image"
                           class="img-raised rounded"
                         />
                       </div>
                       <md-card-content class="text-center">
                         <h4>
-                          Google Analytics
+                          {{course3_name}}
                         </h4>
                       </md-card-content>
                     </md-card>
@@ -124,15 +124,15 @@
 
               <div class="md-layout">
                 <div class="md-layout-item md-size-30 text-center">
-                  <md-button class="md-success">Start</md-button>
+                  <md-button class="md-success" @click="click(course1_link)">Start</md-button>
                 </div>
 
                 <div class="md-layout-item md-size-30 text-center">
-                  <md-button class="md-success ">Start</md-button>
+                  <md-button class="md-success" @click="click(course2_link)">Start</md-button>
                 </div>
 
                 <div class="md-layout-item md-size-30 text-center">
-                  <md-button class="md-success ">Start</md-button>
+                  <md-button class="md-success" @click="click(course3_link)">Start</md-button>
                 </div>
               </div>
               <br />
@@ -248,10 +248,27 @@ export default {
       amount2: 20,
       amount3: 80,
       userEmail: firebase.auth().currentUser.email,
-      userName: ""
+      userName: "",
+      finalCourses:[],
+      course1: "",
+      course1_name: "",
+      course1_link: "",
+      course1_pic: "",
+      course2: "",
+      course2_name: "",
+      course2_link: "",
+      course2_pic: "",
+      course3: "",
+      course3_name: "",
+      course3_link: "",
+      course3_pic: "",
+      industry: ""
     };
   },
   methods: {
+    click: function(link) {
+            window.open(link, "_blank");
+        }
     /*getUsername(email) {
       return database
         .collection("Users")
@@ -272,6 +289,21 @@ export default {
         console.log(user.data().Username);
         this.userName = user.data().Username;
       });*/
+    this.finalCourses = this.$store.state.user.finalCourses;
+    this.industry = this.$store.state.user.industry;
+    this.course1 = this.finalCourses[0].Skillset;
+    this.course1_name = this.finalCourses[0].Name;
+    this.course1_link = this.finalCourses[0].Link;
+    this.course1_pic = this.finalCourses[0].Image;
+    this.course2 = this.finalCourses[1].Skillset;
+    this.course2_name = this.finalCourses[1].Name;
+    this.course2_link = this.finalCourses[1].Link;
+    this.course2_pic = this.finalCourses[1].Image;
+    this.course3 = this.finalCourses[2].Skillset;
+    this.course3_name = this.finalCourses[2].Name;
+    this.course3_link = this.finalCourses[2].Link;
+    this.course3_pic = this.finalCourses[2].Image;
+
   }
 };
 </script>
