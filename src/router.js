@@ -3,7 +3,6 @@ import Router from "vue-router";
 import Index from "./views/Index.vue";
 import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
-import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
@@ -63,15 +62,6 @@ let router = new Router({
       components: { default: Login, header: QuizLoginHeader },
       props: {
         header: { colorOnScroll: 400 }
-      }
-    },
-    {
-      path: "/profile",
-      name: "profile",
-      components: { default: Profile, header: MainNavbar },
-      props: {
-        header: { colorOnScroll: 400 },
-        footer: { backgroundColor: "black" }
       }
     },
     {

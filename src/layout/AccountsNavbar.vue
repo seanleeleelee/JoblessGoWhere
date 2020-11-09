@@ -11,16 +11,6 @@
         <p class="md-title">JoblessGoWhere</p>
       </div>
 
-      <div class="md-toolbar-section-center">
-        <md-autocomplete
-          class="search"
-          v-model="selectedEmployee"
-          :md-options="employees"
-        >
-          <label>Search...</label>
-        </md-autocomplete>
-      </div>
-
       <div class="md-toolbar-section-end">
         <md-list-item v-on:click="signOut">
           <div class="md-title">
@@ -76,7 +66,7 @@ export default {
     return {
       extraNavClasses: "",
       toggledClass: false,
-      selectedEmployee: null,
+      //selectedEmployee: null,
       loggedIn: false,
       employees: [
         "Jim Halpert",
