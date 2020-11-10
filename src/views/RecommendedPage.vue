@@ -235,7 +235,7 @@ export default {
           // Your timer is done now. Print a line for debugging and resolve myTimerPromise
           console.log("1 second up, resolving myTimerPromise");
           resolve();
-        }, 1000); // This promise will be resolved in 2.5 seconds
+        }, 1000); // This promise will be resolved in 1 second
       });
 
       // Fetch data now, within Promise.all()

@@ -1,25 +1,27 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import * as fb from "./firebase";
-// import router from "./router";
 
 Vue.use(Vuex);
 
-let lifestage = window.localStorage.getItem("lifestage");
-let industry = window.localStorage.getItem("industry");
-let course = window.localStorage.getItem("course");
-let skillsets = window.localStorage.getItem("skillsets");
+//functions to get variables from sessionStorage
+let lifestage = window.sessionStorage.getItem("lifestage");
+let industry = window.sessionStorage.getItem("industry");
+let course = window.sessionStorage.getItem("course");
+let skillsets = window.sessionStorage.getItem("skillsets");
+let username = window.sessionStorage.getItem("username");
+let recommendedCourses = window.sessionStorage.getItem("recommendedCourses");
+let finalCourses = window.sessionStorage.getItem("finalCourses");
 
 export const store = new Vuex.Store({
   state: {
     user: {
-      lifestage: "",
-      industry: "",
-      skillsets: [],
-      course: [],
-      username: "",
-      recommendedCourses: [],
-      finalCourses: [],
+      lifestage: lifestage ? lifestage : "",
+      industry: industry ? industry : "",
+      course: course ? course : [],
+      skillsets: skillsets ? skillsets : [],
+      username: username ? username : "",
+      recommendedCourses: recommendedCourses ? recommendedCourses : [],
+      finalCourses: finalCourses ? finalCourses : [],
       defaultCourses: [
         {
           Name: "Data Analytics",
@@ -56,33 +58,52 @@ export const store = new Vuex.Store({
   mutations: {
     changeLifestage(state, payload) {
       state.user.lifestage = payload;
+      this.commit("saveLifestage");
     },
     changeIndustry(state, payload) {
       state.user.industry = payload;
+      this.commit("saveIndustry");
     },
     addSkillsets(state, payload) {
       state.user.skillsets = payload;
+      this.commit("saveSkillsets");
     },
     addCourses(state, payload) {
       state.user.course = payload;
+      this.commit("saveCourses");
     },
     addRecommended(state, payload) {
       state.user.recommendedCourses = payload;
+      this.commit("saveRecommendedCourses");
     },
     addFinalCourses(state, payload) {
       state.user.finalCourses = payload;
+      this.commit("saveFinalCourses");
     },
+    // functions for saving state to sessionStorage
     saveLifestage(state) {
-      window.localStorage.setItem("lifestage", state.user.lifestage);
+      window.sessionStorage.setItem("lifestage", state.user.lifestage);
     },
     saveIndustry(state) {
-      window.localStorage.setItem("industry", state.user.industry);
+      window.sessionStorage.setItem("industry", state.user.industry);
     },
-    saveCourse(state) {
-      window.localStorage.setItem("course", state.user.course);
+    saveCourses(state) {
+      window.sessionStorage.setItem("course", state.user.course);
     },
     saveSkillsets(state) {
-      window.localStorage.setItem("skillsets", state.user.skillsets);
+      window.sessionStorage.setItem("skillsets", state.user.skillsets);
+    },
+    saveUsername(state) {
+      window.sessionStorage.setItem("username", state.user.username);
+    },
+    saveRecommendedCourses(state) {
+      window.sessionStorage.setItem(
+        "recommendedCourses",
+        state.user.recommendedCourses
+      );
+    },
+    saveFinalCourses(state) {
+      window.sessionStorage.setItem("finalCourses", state.user.course);
     }
   }
 });
