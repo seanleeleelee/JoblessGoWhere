@@ -6,11 +6,14 @@ Vue.use(Vuex);
 //functions to get variables from sessionStorage
 let lifestage = window.sessionStorage.getItem("lifestage");
 let industry = window.sessionStorage.getItem("industry");
-let course = window.sessionStorage.getItem("course");
-let skillsets = window.sessionStorage.getItem("skillsets");
+let course = JSON.parse(window.sessionStorage.getItem("course"));
+let skillsets = JSON.parse(window.sessionStorage.getItem("skillsets"));
 let username = window.sessionStorage.getItem("username");
-let recommendedCourses = window.sessionStorage.getItem("recommendedCourses");
-let finalCourses = window.sessionStorage.getItem("finalCourses");
+let recommendedCourses = JSON.parse(
+  window.sessionStorage.getItem("recommendedCourses")
+);
+let finalCourses = JSON.parse(window.sessionStorage.getItem("finalCourses"));
+let hasFinalCourses = window.sessionStorage.getItem("hasFinalCourses");
 
 export const store = new Vuex.Store({
   state: {
@@ -22,6 +25,7 @@ export const store = new Vuex.Store({
       username: username ? username : "",
       recommendedCourses: recommendedCourses ? recommendedCourses : [],
       finalCourses: finalCourses ? finalCourses : [],
+      hasFinalCourses: hasFinalCourses ? hasFinalCourses : false,
       defaultCourses: [
         {
           Name: "Data Analytics",
@@ -78,6 +82,7 @@ export const store = new Vuex.Store({
     },
     addFinalCourses(state, payload) {
       state.user.finalCourses = payload;
+      state.user.hasFinalCourses = true;
       this.commit("saveFinalCourses");
     },
     // functions for saving state to sessionStorage
@@ -88,10 +93,16 @@ export const store = new Vuex.Store({
       window.sessionStorage.setItem("industry", state.user.industry);
     },
     saveCourses(state) {
-      window.sessionStorage.setItem("course", state.user.course);
+      window.sessionStorage.setItem(
+        "course",
+        JSON.stringify(state.user.course)
+      );
     },
     saveSkillsets(state) {
-      window.sessionStorage.setItem("skillsets", state.user.skillsets);
+      window.sessionStorage.setItem(
+        "skillsets",
+        JSON.stringify(state.user.skillsets)
+      );
     },
     saveUsername(state) {
       window.sessionStorage.setItem("username", state.user.username);
@@ -99,11 +110,18 @@ export const store = new Vuex.Store({
     saveRecommendedCourses(state) {
       window.sessionStorage.setItem(
         "recommendedCourses",
-        state.user.recommendedCourses
+        JSON.stringify(state.user.recommendedCourses)
       );
     },
     saveFinalCourses(state) {
-      window.sessionStorage.setItem("finalCourses", state.user.course);
+      window.sessionStorage.setItem(
+        "finalCourses",
+        JSON.stringify(state.user.finalCourses)
+      );
+      window.sessionStorage.setItem(
+        "hasFinalCourses",
+        state.user.hasFinalCourses
+      );
     }
   }
 });

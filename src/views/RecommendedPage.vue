@@ -4,7 +4,7 @@
     <div class="main main-raised">
       <div class="section">
         <div class="container">
-          <div class="md-layout">
+          <div class="md-layout" v-if="hasFinalCourses">
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
@@ -158,6 +158,7 @@ export default {
       selectedCourses: [],
       recommendedCourses: [],
       finalCourses: [],
+      hasFinalCourses: false,
       min: 40,
       max: 90,
       imageURL1: "",
@@ -185,11 +186,11 @@ export default {
       }
       return result;
     },
-    fetchRecommended: function() {
+    fetchRecommended() {
       // user has not selected any skills,firebase requires non empty array for 'not-in' filter
       if (this.selectedSkills.length === 0) {
         console.log("User has no skills");
-        database
+        return database
           .collection("courses")
           .where("Industry", "==", this.industry)
           .get()
@@ -200,7 +201,7 @@ export default {
           });
       } else {
         console.log("user has at least 1 skill");
-        database
+        return database
           .collection("courses")
           .where("Industry", "==", this.industry)
           .where("Skillset", "not-in", this.selectedSkills) // still need to filter from selectedCourse
@@ -209,6 +210,10 @@ export default {
             querySnapShot.forEach(doc => {
               this.recommendedCourses.push(doc.data());
             });
+          })
+          .then(() => {
+            console.log("Data fetched");
+            console.log("Recommended Courses: " + this.recommendedCourses);
           });
       }
     },
@@ -226,8 +231,8 @@ export default {
     openURL3() {
       window.open(courseLink3, "_blank");
     },
-    getDelayedData: function() {
-      // Create a new Promise and resolve after 2 seconds
+    getDelayedData() {
+      // Create a new Promise and resolve after 1 seconds
       console.log("start getting delayed data");
       var myTimerPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -244,10 +249,9 @@ export default {
         console.log("Recommended Courses: " + this.recommendedCourses);
       });
     },
-    async filterRecommended() {
+    filterRecommended() {
       //remove user completed courses from the total recommendedCourses
       // if there were less than 3 recommendedCourses returned
-      await this.sleep(1500);
       console.log("start filtering recommended courses");
       for (var courseName in this.selectedCourses) {
         for (var i = this.recommendedCourses.length - 1; i >= 0; --i) {
@@ -262,29 +266,46 @@ export default {
       } else {
         this.finalCourses = this.getRandom(this.recommendedCourses, 3);
       }
+      this.hasFinalCourses = true;
       console.log(this.finalCourses);
+      this.$store.commit("addFinalCourses", this.finalCourses);
+    },
+    updateImageURL() {
+      console.log("updating image urls");
       this.imageURL1 = this.finalCourses[0].Image;
       this.imageURL2 = this.finalCourses[1].Image;
       this.imageURL3 = this.finalCourses[2].Image;
+    },
+    updateCourseLink() {
+      console.log("updating course links");
       this.courseLink1 = this.finalCourses[0].Link;
       this.courseLink2 = this.finalCourses[1].Link;
       this.courseLink3 = this.finalCourses[2].Link;
     }
   },
   created() {
-    this.industry = this.$store.state.user.industry;
-    // console.log("Current industry: " + this.industry);
     this.lifestage = this.$store.state.user.lifestage;
-    // console.log("Current industry: " + this.industry);
+    this.industry = this.$store.state.user.industry;
+    console.log("User selected industry: " + this.industry);
     this.selectedSkills = this.$store.state.user.skillsets;
-    // console.log("Current skills: " + this.selectedSkills);
+    console.log("User selected skills: " + this.selectedSkills);
     this.selectedCourses = this.$store.state.user.course;
-    this.getDelayedData();
+    console.log("User selected courses: " + this.selectedSkills);
+    this.finalCourses = this.$store.state.user.finalCourses;
+    this.hasFinalCourses = this.$store.state.user.hasFinalCourses;
+    console.log("Final courses boolean: " + this.hasFinalCourses.toString());
+    console.log("end of created");
   },
-  mounted() {
-    this.filterRecommended().then(() =>
-      this.$store.commit("addFinalCourses", this.finalCourses)
-    );
+  async mounted() {
+    if (this.hasFinalCourses === false) {
+      await this.fetchRecommended();
+      this.filterRecommended();
+    }
+    // await this.fetchRecommended()
+    // this.filterRecommended()
+    this.updateImageURL();
+    this.updateCourseLink();
+    console.log("Final courses boolean: " + this.hasFinalCourses.toString());
   }
 };
 </script>
