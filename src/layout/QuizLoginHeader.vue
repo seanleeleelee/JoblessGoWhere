@@ -26,47 +26,12 @@
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
-              <md-list-item href="/">
-                <md-icon>info_outline</md-icon>
-                <p>About</p>
-              </md-list-item>
 
               <md-list-item href="/LoginPage">
                 <i class="material-icons">cloud_download</i>
                 <p>Login</p>
               </md-list-item>
 
-              <li class="md-list-item">
-                <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
-                >
-                  <div class="md-list-item-content">
-                    <drop-down direction="down">
-                      <ul class="dropdown-menu dropdown-with-icons">
-                        <li>
-                          <a href="/">
-                            <i class="material-icons">view_day</i>
-                            <p>Landing Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/LoginPage">
-                            <i class="material-icons">fingerprint</i>
-                            <p>Login Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/profile">
-                            <i class="material-icons">account_circle</i>
-                            <p>Profile Page</p>
-                          </a>
-                        </li>
-                      </ul>
-                    </drop-down>
-                  </div>
-                </a>
-              </li>
             </md-list>
           </div>
         </div>
