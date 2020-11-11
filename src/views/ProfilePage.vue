@@ -76,7 +76,7 @@
 
                       <md-card-content class="text-center">
                         <h4>
-                          {{course1_name}}
+                          {{ course1_name }}
                         </h4>
                       </md-card-content>
                     </md-card>
@@ -95,7 +95,7 @@
                       </div>
                       <md-card-content class="text-center">
                         <h4>
-                          {{course2_name}}
+                          {{ course2_name }}
                         </h4>
                       </md-card-content>
                     </md-card>
@@ -114,7 +114,7 @@
                       </div>
                       <md-card-content class="text-center">
                         <h4>
-                          {{course3_name}}
+                          {{ course3_name }}
                         </h4>
                       </md-card-content>
                     </md-card>
@@ -124,15 +124,21 @@
 
               <div class="md-layout">
                 <div class="md-layout-item md-size-30 text-center">
-                  <md-button class="md-success" @click="click(course1_link)">Start</md-button>
+                  <md-button class="md-success" @click="click(course1_link)"
+                    >Start</md-button
+                  >
                 </div>
 
                 <div class="md-layout-item md-size-30 text-center">
-                  <md-button class="md-success" @click="click(course2_link)">Start</md-button>
+                  <md-button class="md-success" @click="click(course2_link)"
+                    >Start</md-button
+                  >
                 </div>
 
                 <div class="md-layout-item md-size-30 text-center">
-                  <md-button class="md-success" @click="click(course3_link)">Start</md-button>
+                  <md-button class="md-success" @click="click(course3_link)"
+                    >Start</md-button
+                  >
                 </div>
               </div>
               <br />
@@ -249,7 +255,7 @@ export default {
       amount3: 80,
       userEmail: firebase.auth().currentUser.email,
       userName: "",
-      finalCourses:[],
+      finalCourses: [],
       course1: "",
       course1_name: "",
       course1_link: "",
@@ -267,8 +273,8 @@ export default {
   },
   methods: {
     click: function(link) {
-            window.open(link, "_blank");
-        }
+      window.open(link, "_blank");
+    }
     /*getUsername(email) {
       return database
         .collection("Users")
@@ -303,7 +309,6 @@ export default {
     this.course3_name = this.finalCourses[2].Name;
     this.course3_link = this.finalCourses[2].Link;
     this.course3_pic = this.finalCourses[2].Image;
-
   }
 };
 </script>
