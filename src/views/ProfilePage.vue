@@ -36,6 +36,7 @@
               <h3><b>Industry Description: </b></h3>
 
               <h5>{{industryDescription}}</h5><br><br>
+            </div>
             
 
             <div class="md-layout-item md-size-100 md-small-size-100">
