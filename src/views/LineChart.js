@@ -19,7 +19,7 @@ export default {
         options: {
             title: {
               display: true,
-              text: 'Employability over the past 20 years'
+              text: 'Number of People in the Industry over the past 20 years'
             },
             responsive: true,
             maintainAspectRatio: false
