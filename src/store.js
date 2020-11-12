@@ -66,14 +66,17 @@ export const store = new Vuex.Store({
     },
     changeIndustry(state, payload) {
       state.user.industry = payload;
+      state.user.hasFinalCourses = false;
       this.commit("saveIndustry");
     },
     addSkillsets(state, payload) {
       state.user.skillsets = payload;
+      state.user.hasFinalCourses = false;
       this.commit("saveSkillsets");
     },
     addCourses(state, payload) {
       state.user.course = payload;
+      state.user.hasFinalCourses = false;
       this.commit("saveCourses");
     },
     addRecommended(state, payload) {

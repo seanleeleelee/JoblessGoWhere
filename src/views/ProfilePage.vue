@@ -33,13 +33,11 @@
             <div class="md-layout-item md-size-65 md-small-size-100">
               <h2 class="title text-left">Chosen Industry : {{ industry }}</h2>
               <h3><b>Industry Description: </b></h3>
-              <h5>{{industryDescription}}</h5>
-            
+              <h5>{{ industryDescription }}</h5>
             </div>
-            
 
             <div class="md-layout-item md-size-100 md-small-size-100">
-              <hr>
+              <hr />
               <h2 class="title text-left">To complete</h2>
               <div class="md-layout">
                 <div
@@ -58,10 +56,10 @@
                         <md-card-content class="text-center">
                           <h4>{{ course.Name }}</h4>
                           <md-button
-                          class="md-success"
-                          @click="click(course.Link)"
-                          >Start</md-button
-                        >
+                            class="md-success"
+                            @click="click(course.Link)"
+                            >Start</md-button
+                          >
                         </md-card-content>
                       </md-card>
                     </div>
@@ -70,13 +68,11 @@
                       <h3>Course Description</h3>
                       <h4>{{ course.Description }}</h4>
                     </div>
-                    
                   </div>
-                  <br>
+                  <br />
                 </div>
               </div>
               <hr />
-              
             </div>
           </div>
         </div>
@@ -95,39 +91,39 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg"),
+      default: require("@/assets/img/city-profile.jpg")
     },
     htmlImg: {
       type: String,
-      default: require("@/assets/img/profile/html.jpeg"),
+      default: require("@/assets/img/profile/html.jpeg")
     },
     gaImg: {
       type: String,
-      default: require("@/assets/img/profile/google-analytics.svg"),
+      default: require("@/assets/img/profile/google-analytics.svg")
     },
     csImg: {
       type: String,
-      default: require("@/assets/img/profile/IntroCSlogo.jpeg"),
+      default: require("@/assets/img/profile/IntroCSlogo.jpeg")
     },
     oopImg: {
       type: String,
-      default: require("@/assets/img/profile/oop.jpg"),
+      default: require("@/assets/img/profile/oop.jpg")
     },
     javaImg: {
       type: String,
-      default: require("@/assets/img/profile/java.jpg"),
+      default: require("@/assets/img/profile/java.jpg")
     },
     teamImg2: {
       type: String,
-      default: require("@/assets/img/faces/user.jpg"),
-    },
+      default: require("@/assets/img/faces/profilepic.png")
+    }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   data() {
     return {
@@ -137,11 +133,11 @@ export default {
       recommendedCourses: [],
       industryDescription: "",
       username: "",
-      UID: "",
+      UID: ""
     };
   },
   methods: {
-    click: function (link) {
+    click: function(link) {
       window.open(link, "_blank");
     } /*
     fetchCompletedCourses: function(){
@@ -154,35 +150,33 @@ export default {
         });
       });
     },*/,
-    getUID: function () {
+    getUID: function() {
       this.UID = firebase.auth().currentUser.uid;
     },
-    fetchUserData: function () {
+    fetchUserData: function() {
       database
         .collection("users")
         .doc(this.UID)
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.username = doc.data().username;
           this.industry = doc.data().industry;
           this.recommendedCourses = doc.data().recommendedcourses;
           this.completedCourses = doc.data().course;
-          this.fetchIndustryData()
+          this.fetchIndustryData();
         });
     },
     fetchIndustryData: function() {
       database
-      .collection("industries")
-      .where("Name", "==" , this.industry)
-      .get()
-      .then(querySnapShot => {
-        querySnapShot.forEach(doc => {
-          this.industryDescription = doc.data().Description
-      });
-      });
-    },
-      
-    
+        .collection("industries")
+        .where("Name", "==", this.industry)
+        .get()
+        .then(querySnapShot => {
+          querySnapShot.forEach(doc => {
+            this.industryDescription = doc.data().Description;
+          });
+        });
+    }
   },
 
   created() {
@@ -196,9 +190,7 @@ export default {
       });*/
     this.getUID();
     this.fetchUserData();
-
-    
-  },
+  }
 };
 </script>
 
