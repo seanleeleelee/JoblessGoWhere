@@ -32,8 +32,9 @@
 
             <div class="md-layout-item md-size-65 md-small-size-100">
               <h2 class="title text-left">Chosen Industry : {{ industry }}</h2>
+              <line-chart></line-chart><br><br>
               <h3><b>Industry Description: </b></h3>
-              <h5>{{industryDescription}}</h5>
+              <h5>{{industryDescription}}</h5><br><br>
             
             </div>
             
@@ -88,8 +89,12 @@
 <script>
 import firebase from "firebase";
 import database from "../firebase.js";
+import LineChart from "./LineChart.vue";
 
 export default {
+  components: {
+    LineChart
+  },
   bodyClass: "quiz-lifestage-page",
 
   props: {
