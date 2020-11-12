@@ -135,18 +135,19 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(user => {
-            try{return database
-              .collection("users")
-              .doc(user.user.uid)
-              .set({
-                username: this.username,
-                lifestage: this.$store.state.user.lifestage,
-                industry: this.$store.state.user.industry,
-                skillsets: this.$store.state.user.skillsets,
-                course: this.$store.state.user.course,
-                recommendedcourses: this.$store.state.user.finalCourses,
-              });
-            } catch(FirebaseAuthException) {
+            try {
+              return database
+                .collection("users")
+                .doc(user.user.uid)
+                .set({
+                  username: this.username,
+                  lifestage: this.$store.state.user.lifestage,
+                  industry: this.$store.state.user.industry,
+                  skillsets: this.$store.state.user.skillsets,
+                  course: this.$store.state.user.course,
+                  recommendedcourses: this.$store.state.user.finalCourses
+                });
+            } catch (FirebaseAuthException) {
               this.errors.push(FirebaseAuthException);
             }
           })
