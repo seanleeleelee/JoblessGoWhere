@@ -81,14 +81,7 @@
       <div class="section">
         <div class="container">
           <div class="md-layout-item">
-            <div class="frame">
-              <iframe
-                width="1500"
-                height="100%"
-                src="https://data.gov.sg/dataset/job-vacancy-by-industry-and-occupational-group-quarterly/resource/3ba4be1b-b954-4db8-9c0f-d7a3745f8294/view/754efe9d-4577-45a1-8152-68aa5897632b"
-                frameBorder="0"
-              ></iframe>
-            </div>
+            <div class="frame"></div>
           </div>
         </div>
       </div>

@@ -105,8 +105,8 @@
                   </div>
                 </div>
               </div>
-              <h4> These are your top 3 recommended courses </h4>
-              <h4> Click on each icon to be directed to the course page! </h4>
+              <h4>These are your top 3 recommended courses</h4>
+              <h4>Click on each icon to be directed to the course page!</h4>
               <md-button to="/SignUp" class="md-success md-lg">
                 Save Recommendation
               </md-button>
