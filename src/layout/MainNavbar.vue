@@ -26,12 +26,10 @@
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <md-list>
-
               <md-list-item href="/LoginPage">
                 <i class="material-icons">cloud_download</i>
                 <p>Login</p>
               </md-list-item>
-
             </md-list>
           </div>
         </div>

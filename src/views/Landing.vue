@@ -75,6 +75,7 @@
             </div>
           </div>
 
+
           <div class="md-layout ">
             <div class="md-layout-item">
             <h3 class="title text-center ">Current Economic Trends</h3>
@@ -89,8 +90,8 @@
               <vaccancy-chart></vaccancy-chart>
             </div>
           </div>
-        </div>
-      </div>
+
+    
 
       <div class="section text-center">
         <div class="container">
