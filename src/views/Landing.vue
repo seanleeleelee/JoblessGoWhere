@@ -75,21 +75,14 @@
             </div>
           </div>
 
-
-          <div class="md-layout ">
-            <div class="md-layout-item">
-            <h3 class="title text-center ">Current Economic Trends</h3>
-            </div>
-          </div>
-
           <div class="md-layout">
-            <div class="md-layout-item md-medium-size-50 md-small-size-100">
-              <employ-chart></employ-chart>
-            </div>
-            <div class="md-layout-item md-medium-size-50 md-small-size-100">
-              <vaccancy-chart></vaccancy-chart>
+            <div class="md-layout-item ">
+              <h3 class="title text-center ">Singapore's Current Economic Trends</h3>
+              <combined-chart></combined-chart>
+              <graduate-bar></graduate-bar>
             </div>
           </div>
+        <p class="text-right">Data taken from data.gov.sg</p>
         </div>
       </div>
 
@@ -227,13 +220,13 @@
 </template>
 
 <script>
-import EmployChart from "../EmployChart.js";
-import VaccancyChart from "../VaccancyChart.js";
+import GraduateBar from "../GraduateBar.js";
+import CombinedChart from "../CombinedChart.js";
 export default {
   bodyClass: "landing-page",
   components: {
-    EmployChart,
-    VaccancyChart,
+    GraduateBar,
+    CombinedChart
   },
   props: {
     header: {
