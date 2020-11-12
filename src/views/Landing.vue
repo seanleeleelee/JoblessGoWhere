@@ -90,6 +90,8 @@
               <vaccancy-chart></vaccancy-chart>
             </div>
           </div>
+        </div>
+      </div>
 
     
 
@@ -219,6 +221,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>
