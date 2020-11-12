@@ -16,7 +16,7 @@
             <div class="md-layout-item md-size-35 md-small-size-100">
               <md-card>
                 <md-card-content class="text-center">
-                  <h2>Welcome {{ username }}</h2>
+                  <h2>Welcome, {{ username }}!</h2>
                   <div class="md-layout-item md-size-70 mx-auto text-center">
                     <div class="avatar">
                       <img
