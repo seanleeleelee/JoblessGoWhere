@@ -135,7 +135,7 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(user => {
-            return database
+            try{return database
               .collection("users")
               .doc(user.user.uid)
               .set({
@@ -144,8 +144,11 @@ export default {
                 industry: this.$store.state.user.industry,
                 skillsets: this.$store.state.user.skillsets,
                 course: this.$store.state.user.course,
-                recommendedcourses: this.$store.state.user.recommendedCourses
+                recommendedcourses: this.$store.state.user.finalCourses,
               });
+            } catch(FirebaseAuthException) {
+              this.errors.push(FirebaseAuthException);
+            }
           })
           .then(() => {
             this.$router.push("/ProfilePage");
@@ -156,15 +159,6 @@ export default {
       }
 
       e.preventDefault();
-
-      /*
-            this.$router.push("/ProfilePage");
-          })
-          .catch(error => {
-            this.errors.push(error);
-          });
-      }
-      e.preventDefault();*/
     },
     validEmail: function(email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
