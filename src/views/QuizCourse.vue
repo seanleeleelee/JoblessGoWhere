@@ -109,11 +109,9 @@ export default {
     addCourses: function() {
       this.$store.commit("addCourses", this.selectedCourses);
       this.$router.push({ path: "/RecommendedPage" });
-      console.log("Selected courses: " + this.selectedCourses);
     },
     removeDuplicates: function() {
       this.courseList = [...new Set(this.courseList)];
-      console.log("Removed Duplicates");
     }
   },
   created() {

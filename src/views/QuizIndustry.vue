@@ -106,15 +106,12 @@ export default {
     addIndustry: function() {
       this.$store.commit("changeIndustry", this.industry);
       this.$router.push({ path: "/quiz/skillset" });
-      console.log(
-        "Updated user industry with: " + this.industry + this.lifestage
-      );
+      
     }
   },
   created() {
     this.fetchIndustries();
     this.lifestage = this.$store.state.user.lifestage;
-    console.log("Retrieved Industries" + this.lifestage);
   }
 };
 </script>

@@ -63,7 +63,6 @@ export default {
               }
               col += 18
             })
-            console.log(this.datacollection.datasets[0])
             this.renderChart(this.datacollection, this.options)
           })
       },

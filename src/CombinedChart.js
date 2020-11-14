@@ -18,7 +18,7 @@ export default {
                     fill: true
                 },
                 {
-                    label: 'Job Vaccancy Annually',
+                    label: 'Job Vacancy Annually',
                     data: [],
                     borderWidth: 0.5,
                     borderColor: "blue",

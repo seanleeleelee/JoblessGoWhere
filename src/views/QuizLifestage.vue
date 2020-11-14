@@ -204,26 +204,22 @@ export default {
     onClickStudent() {
       this.lifestage = "Student";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log("updated lifestage: " + this.lifestage);
     },
     onClickGrad() {
       this.lifestage = "Graduate";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log("updated lifestage: " + this.lifestage);
     },
     onClickExp1() {
       this.lifestage = "Early Professional";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log("updated lifestage: " + this.lifestage);
     },
     onClickExp2() {
       this.lifestage = "Experienced Professional";
       this.$store.commit("changeLifestage", this.lifestage);
-      console.log("updated lifestage: " + this.lifestage);
     }
   },
   created() {
-    console.log("Initialized new user in DB");
+    
   },
   data() {
     return {

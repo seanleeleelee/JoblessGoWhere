@@ -106,13 +106,11 @@ export default {
     addSkillsets: function() {
       this.$store.commit("addSkillsets", this.selectedSkills);
       this.$router.push({ path: "/quiz/course" });
-      console.log("updated doc" + this.selectedSkills);
     }
   },
   created() {
     this.lifestage = this.$store.state.user.lifestage;
     this.industry = this.$store.state.user.industry;
-    console.log("Retrieved Skillsets" + this.industry);
     this.fetchSkillsets();
   }
 };
