@@ -66,7 +66,6 @@ export default {
           var con = 0.1;
           querySnapShot.forEach(doc => {
             this.datacollection.labels.push(doc.data().Skillset);
-            console.log(doc.data().Skillset)
             if (this.userSkills.includes(doc.data().Skillset)){
               this.datacollection.datasets[0].data.push(1);
             } else {
@@ -74,7 +73,6 @@ export default {
               con += 0.1;
             }
           })
-          console.log(this.datacollection.datasets[0])
           this.renderChart(this.datacollection, this.options)
         })
     },

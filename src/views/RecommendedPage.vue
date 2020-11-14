@@ -191,7 +191,6 @@ export default {
     fetchRecommended() {
       // user has not selected any skills,firebase requires non empty array for 'not-in' filter
       if (this.selectedSkills.length === 0) {
-        console.log("User has no skills");
         return database
           .collection("courses")
           .where("Industry", "==", this.industry)
@@ -202,7 +201,6 @@ export default {
             });
           });
       } else {
-        console.log("user has at least 1 skill");
         return database
           .collection("courses")
           .where("Industry", "==", this.industry)
@@ -213,10 +211,7 @@ export default {
               this.recommendedCourses.push(doc.data());
             });
           })
-          .then(() => {
-            console.log("Data fetched");
-            console.log("Recommended Courses: " + this.recommendedCourses);
-          });
+          
       }
     },
     sleep(ms) {
@@ -235,26 +230,23 @@ export default {
     },
     getDelayedData() {
       // Create a new Promise and resolve after 1 seconds
-      console.log("start getting delayed data");
       var myTimerPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
           // callback function for timer, gets called after the time-delay
           // Your timer is done now. Print a line for debugging and resolve myTimerPromise
-          console.log("1 second up, resolving myTimerPromise");
+          
           resolve();
         }, 1000); // This promise will be resolved in 1 second
       });
 
       // Fetch data now, within Promise.all()
       Promise.all([myTimerPromise, this.fetchRecommended()]).then(() => {
-        console.log("Data fetched");
-        console.log("Recommended Courses: " + this.recommendedCourses);
+        
       });
     },
     filterRecommended() {
       //remove user completed courses from the total recommendedCourses
       // if there were less than 3 recommendedCourses returned
-      console.log("start filtering recommended courses");
       for (var courseName in this.selectedCourses) {
         for (var i = this.recommendedCourses.length - 1; i >= 0; --i) {
           if (this.recommendedCourses[i].Name == courseName) {
@@ -269,17 +261,14 @@ export default {
         this.finalCourses = this.getRandom(this.recommendedCourses, 3);
       }
       this.hasFinalCourses = true;
-      console.log(this.finalCourses);
       this.$store.commit("addFinalCourses", this.finalCourses);
     },
     updateImageURL() {
-      console.log("updating image urls");
       this.imageURL1 = this.finalCourses[0].Image;
       this.imageURL2 = this.finalCourses[1].Image;
       this.imageURL3 = this.finalCourses[2].Image;
     },
     updateCourseLink() {
-      console.log("updating course links");
       this.courseLink1 = this.finalCourses[0].Link;
       this.courseLink2 = this.finalCourses[1].Link;
       this.courseLink3 = this.finalCourses[2].Link;
@@ -288,15 +277,10 @@ export default {
   created() {
     this.lifestage = this.$store.state.user.lifestage;
     this.industry = this.$store.state.user.industry;
-    console.log("User selected industry: " + this.industry);
     this.selectedSkills = this.$store.state.user.skillsets;
-    console.log("User selected skills: " + this.selectedSkills);
     this.selectedCourses = this.$store.state.user.course;
-    console.log("User selected courses: " + this.selectedSkills);
     this.finalCourses = this.$store.state.user.finalCourses;
     this.hasFinalCourses = this.$store.state.user.hasFinalCourses;
-    console.log("Final courses boolean: " + this.hasFinalCourses.toString());
-    console.log("end of created");
   },
   async mounted() {
     if (this.hasFinalCourses === false) {
@@ -307,7 +291,7 @@ export default {
     // this.filterRecommended()
     this.updateImageURL();
     this.updateCourseLink();
-    console.log("Final courses boolean: " + this.hasFinalCourses.toString());
+    
   }
 };
 </script>
