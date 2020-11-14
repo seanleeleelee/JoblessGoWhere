@@ -25,6 +25,7 @@
                         class="rounded-circle img-fluid"
                       />
                     </div>
+                    <br />
                   </div>
                 </md-card-content>
               </md-card>
@@ -32,12 +33,36 @@
 
             <div class="md-layout-item md-size-65 md-small-size-100">
               <h2 class="title text-left">Chosen Industry : {{ industry }}</h2>
-              <line-chart></line-chart><br><br>
-              <h3><b>Industry Description: </b></h3>
 
-              <h5>{{industryDescription}}</h5><br><br>
+              <h3><b>Industry Description: </b></h3>
+              <h5>{{ industryDescription }}</h5>
+              <br /><br />
             </div>
-            
+
+            <div class="md-layout-item md-size-100 md-small-size-100">
+              <h2 class="title text-left">Dashboard :</h2>
+
+              <div class="md-layout">
+                <div class="md-layout-item">
+                  <chart></chart>
+                </div>
+              </div>
+              <div class="md-layout">
+                <div class="md-layout-item md-size-50">
+                  <h5 class = "title text-center"> Your skillsets </h5>
+                  <hr>
+                  <radar></radar>
+                </div>
+                <div class="md-layout-item md-size-50"> 
+                  <h5 class = "title text-center"> User Industry Preference </h5>
+                  <hr>
+                <div class = " md-layout-item small">
+                  <pie></pie>
+              </div>
+                </div>
+
+              </div>
+            </div>
 
             <div class="md-layout-item md-size-100 md-small-size-100">
               <hr />
@@ -87,50 +112,54 @@
 <script>
 import firebase from "firebase";
 import database from "../firebase.js";
-import LineChart from "./LineChart.vue";
+import Chart from "./LineChart.js";
+import Radar from "./RadarSkillset.js";
+import Pie from "./IndustryPie.js";
 
 export default {
   components: {
-    LineChart
+    Chart,
+    Radar,
+    Pie,
   },
   bodyClass: "quiz-lifestage-page",
 
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg")
+      default: require("@/assets/img/city-profile.jpg"),
     },
     htmlImg: {
       type: String,
-      default: require("@/assets/img/profile/html.jpeg")
+      default: require("@/assets/img/profile/html.jpeg"),
     },
     gaImg: {
       type: String,
-      default: require("@/assets/img/profile/google-analytics.svg")
+      default: require("@/assets/img/profile/google-analytics.svg"),
     },
     csImg: {
       type: String,
-      default: require("@/assets/img/profile/IntroCSlogo.jpeg")
+      default: require("@/assets/img/profile/IntroCSlogo.jpeg"),
     },
     oopImg: {
       type: String,
-      default: require("@/assets/img/profile/oop.jpg")
+      default: require("@/assets/img/profile/oop.jpg"),
     },
     javaImg: {
       type: String,
-      default: require("@/assets/img/profile/java.jpg")
+      default: require("@/assets/img/profile/java.jpg"),
     },
     teamImg2: {
       type: String,
-      default: require("@/assets/img/faces/profilepic.png")
-    }
+      default: require("@/assets/img/faces/profilepic.png"),
+    },
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`
+        backgroundImage: `url(${this.header})`,
       };
-    }
+    },
   },
   data() {
     return {
@@ -140,11 +169,11 @@ export default {
       recommendedCourses: [],
       industryDescription: "",
       username: "",
-      UID: ""
+      UID: "",
     };
   },
   methods: {
-    click: function(link) {
+    click: function (link) {
       window.open(link, "_blank");
     } /*
     fetchCompletedCourses: function(){
@@ -157,15 +186,15 @@ export default {
         });
       });
     },*/,
-    getUID: function() {
+    getUID: function () {
       this.UID = firebase.auth().currentUser.uid;
     },
-    fetchUserData: function() {
+    fetchUserData: function () {
       database
         .collection("users")
         .doc(this.UID)
         .get()
-        .then(doc => {
+        .then((doc) => {
           this.username = doc.data().username;
           this.industry = doc.data().industry;
           this.recommendedCourses = doc.data().recommendedcourses;
@@ -173,17 +202,17 @@ export default {
           this.fetchIndustryData();
         });
     },
-    fetchIndustryData: function() {
+    fetchIndustryData: function () {
       database
         .collection("industries")
         .where("Name", "==", this.industry)
         .get()
-        .then(querySnapShot => {
-          querySnapShot.forEach(doc => {
+        .then((querySnapShot) => {
+          querySnapShot.forEach((doc) => {
             this.industryDescription = doc.data().Description;
           });
         });
-    }
+    },
   },
 
   created() {
@@ -197,7 +226,7 @@ export default {
       });*/
     this.getUID();
     this.fetchUserData();
-  }
+  },
 };
 </script>
 

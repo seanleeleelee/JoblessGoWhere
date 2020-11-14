@@ -78,8 +78,13 @@
           <div class="md-layout">
             <div class="md-layout-item ">
               <h3 class="title text-center ">Singapore's Current Economic Trends</h3>
+              <h4 class = "title text-left ">Job Employment and Retrenchment Trend</h4>
               <combined-chart></combined-chart>
+              <br>
+              <h4 class = "title text-left ">Distribution of University Graduates</h4>
+              <div class = " md-layout-item short">
               <graduate-bar></graduate-bar>
+              </div>
             </div>
           </div>
         <p class="text-right">Data taken from data.gov.sg</p>
@@ -105,15 +110,8 @@
                     </div>
                     <h4 class="card-title">
                       Cai Shuhang
-                      <br />
-                      <small class="card-description text-muted"
-                        >Scrum Master</small
-                      >
+                      
                     </h4>
-
-                    <md-card-content>
-                      <p class="card-description">Def not sus</p>
-                    </md-card-content>
 
                     <md-card-actions class="text-center">
                       <md-button
@@ -139,14 +137,9 @@
                     </div>
                     <h4 class="card-title">
                       Callie Cheong
-                      <br />
-                      <small class="card-description text-muted"
-                        >Def not imposter</small
-                      >
                     </h4>
-
                     <md-card-content>
-                      <p class="card-description">Red killed me</p>
+                      
                     </md-card-content>
                   </md-card>
                 </div>
@@ -163,15 +156,7 @@
                     </div>
                     <h4 class="card-title">
                       Sean Lee
-                      <br />
-                      <small class="card-description text-muted"
-                        >Scrub Master</small
-                      >
                     </h4>
-
-                    <md-card-content>
-                      <p class="card-description">I saw Red vent.</p>
-                    </md-card-content>
 
                     <md-card-actions class="text-center">
                       <md-button
@@ -196,16 +181,7 @@
                     </div>
                     <h4 class="card-title">
                       Ashley Ho
-                      <br />
-                      <small class="card-description text-muted"
-                        >Imposter</small
-                      >
                     </h4>
-
-                    <md-card-content>
-                      <p class="card-description">Red sus.</p>
-                    </md-card-content>
-
                     <md-card-actions class="text-center"> </md-card-actions>
                   </md-card>
                 </div>

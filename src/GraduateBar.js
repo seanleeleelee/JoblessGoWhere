@@ -9,7 +9,7 @@ export default{
           labels:[],
           datasets: [
             {
-              label: 'Universities Graduates by Course',
+              label: '',
               data:[],
               borderWidth:1,
               borderColor:"black",
@@ -20,6 +20,10 @@ export default{
           
         },
         options: {
+          legend: {
+            display: false,
+            
+        },
           
         }
       }),
