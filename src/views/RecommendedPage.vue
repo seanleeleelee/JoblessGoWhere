@@ -128,22 +128,6 @@ export default {
       type: String,
       default: require("@/assets/img/city-profile.jpg")
     },
-    dataAnalyticsImg: {
-      type: String,
-      default: require("@/assets/img/python.jpeg")
-    },
-    gaImg: {
-      type: String,
-      default: require("@/assets/img/profile/google-analytics.svg")
-    },
-    SEOimg: {
-      type: String,
-      default: require("@/assets/img/seo.jpg")
-    },
-    midCareerImg4: {
-      type: String,
-      default: require("@/assets/img/GoogleAnalytics.png")
-    }
   },
   computed: {
     headerStyle() {
