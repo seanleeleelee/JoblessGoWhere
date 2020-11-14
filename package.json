@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build && gulp licenses",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,vue}\"",
