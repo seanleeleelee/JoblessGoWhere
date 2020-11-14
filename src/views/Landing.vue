@@ -27,7 +27,7 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">Times are tough</h2>
+              <h2 class="title text-center">Times are tough...</h2>
               <h4 class="description">
                 There are many resources and courses available for this on
                 various platforms like SkillsFuture and Coursera. Despite the
