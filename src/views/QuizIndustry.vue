@@ -106,7 +106,6 @@ export default {
     addIndustry: function() {
       this.$store.commit("changeIndustry", this.industry);
       this.$router.push({ path: "/quiz/skillset" });
-      
     }
   },
   created() {

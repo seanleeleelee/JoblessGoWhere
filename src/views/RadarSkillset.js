@@ -1,85 +1,84 @@
-import { Radar } from "vue-chartjs"
-import database from "../firebase.js"
+import { Radar } from "vue-chartjs";
+import database from "../firebase.js";
 import firebase from "firebase";
 
 export default {
   extends: Radar,
-  data:
-    function () {
-      return {
-        datacollection: {
-          labels:[],
-          datasets: [{
+  data: function() {
+    return {
+      datacollection: {
+        labels: [],
+        datasets: [
+          {
             data: [],
-            label:"",
+            label: "",
             borderColor: "",
             fill: true,
-            borderColor:"black",
-            backgroundColor: 'rgba(50, 153, 76, 0.5)'
-          }]
+            borderColor: "black",
+            backgroundColor: "rgba(50, 153, 76, 0.5)"
+          }
+        ]
+      },
+      options: {
+        scale: {
+          angleLines: {
+            lineWidth: 1,
+            color: "rgba(128, 128, 128, 0.1)"
+          }
         },
-        options: {
-          scale: {
-            angleLines: {
-              lineWidth: 1,
-              color: 'rgba(128, 128, 128, 0.1)'
-            },
-          },
-          legend: {
-            display: false
+        legend: {
+          display: false
         },
         title: {
           display: true,
-          text: 'Industry Skill Mastery'
+          text: "Industry Skill Mastery"
         },
-          responsive: true,
-          spanGaps: false,
-
-        }
+        responsive: true,
+        spanGaps: false
       }
-    },
+    };
+  },
   UID: "",
-  userSkills:[],
+  userSkills: [],
   industry: "",
   methods: {
-    getUID: function () {
+    getUID: function() {
       this.UID = firebase.auth().currentUser.uid;
     },
     fetchIndustry: function() {
       database
-      .collection("users")
-      .doc(this.UID)
-      .get()
-      .then(doc => {
-        this.industry = doc.data().industry;
-        this.userSkills = doc.data().skillsets;
-        this.fetchData();
-      })
+        .collection("users")
+        .doc(this.UID)
+        .get()
+        .then(doc => {
+          this.industry = doc.data().industry;
+          this.userSkills = doc.data().skillsets;
+          this.fetchData();
+        });
     },
-    fetchData: function () {
+    fetchData: function() {
       database
         .collection("courses")
-        .where("Industry", "==" , this.industry)
+        .where("Industry", "==", this.industry)
         .orderBy("Skillset")
         .get()
         .then(querySnapShot => {
           var con = 0.1;
           querySnapShot.forEach(doc => {
             this.datacollection.labels.push(doc.data().Skillset);
-            if (this.userSkills.includes(doc.data().Skillset)){
+            if (this.userSkills.includes(doc.data().Skillset)) {
               this.datacollection.datasets[0].data.push(1);
             } else {
-              this.datacollection.datasets[0].data.push(0.1+con);
+              this.datacollection.datasets[0].data.push(0.1 + con);
               con += 0.1;
             }
-          })
-          this.renderChart(this.datacollection, this.options)
-        })
-    },
-    
+          });
+          this.renderChart(this.datacollection, this.options);
+        });
+    }
   },
   created() {
     this.getUID();
     this.fetchIndustry();
   }
-}
+};

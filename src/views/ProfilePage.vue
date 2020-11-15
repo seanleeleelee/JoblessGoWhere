@@ -49,18 +49,17 @@
               </div>
               <div class="md-layout">
                 <div class="md-layout-item md-size-50">
-                  <h5 class = "title text-center"> Your skillsets </h5>
-                  <hr>
+                  <h5 class="title text-center">Your skillsets</h5>
+                  <hr />
                   <radar></radar>
                 </div>
-                <div class="md-layout-item md-size-50"> 
-                  <h5 class = "title text-center"> User Industry Preference </h5>
-                  <hr>
-                <div class = " md-layout-item small">
-                  <pie></pie>
-              </div>
+                <div class="md-layout-item md-size-50">
+                  <h5 class="title text-center">User Industry Preference</h5>
+                  <hr />
+                  <div class=" md-layout-item small">
+                    <pie></pie>
+                  </div>
                 </div>
-
               </div>
             </div>
 
@@ -120,46 +119,46 @@ export default {
   components: {
     Chart,
     Radar,
-    Pie,
+    Pie
   },
   bodyClass: "quiz-lifestage-page",
 
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg"),
+      default: require("@/assets/img/city-profile.jpg")
     },
     htmlImg: {
       type: String,
-      default: require("@/assets/img/profile/html.jpeg"),
+      default: require("@/assets/img/profile/html.jpeg")
     },
     gaImg: {
       type: String,
-      default: require("@/assets/img/profile/google-analytics.svg"),
+      default: require("@/assets/img/profile/google-analytics.svg")
     },
     csImg: {
       type: String,
-      default: require("@/assets/img/profile/IntroCSlogo.jpeg"),
+      default: require("@/assets/img/profile/IntroCSlogo.jpeg")
     },
     oopImg: {
       type: String,
-      default: require("@/assets/img/profile/oop.jpg"),
+      default: require("@/assets/img/profile/oop.jpg")
     },
     javaImg: {
       type: String,
-      default: require("@/assets/img/profile/java.jpg"),
+      default: require("@/assets/img/profile/java.jpg")
     },
     teamImg2: {
       type: String,
-      default: require("@/assets/img/faces/profilepic.png"),
-    },
+      default: require("@/assets/img/faces/profilepic.png")
+    }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: `url(${this.header})`
       };
-    },
+    }
   },
   data() {
     return {
@@ -169,11 +168,11 @@ export default {
       recommendedCourses: [],
       industryDescription: "",
       username: "",
-      UID: "",
+      UID: ""
     };
   },
   methods: {
-    click: function (link) {
+    click: function(link) {
       window.open(link, "_blank");
     } /*
     fetchCompletedCourses: function(){
@@ -186,15 +185,15 @@ export default {
         });
       });
     },*/,
-    getUID: function () {
+    getUID: function() {
       this.UID = firebase.auth().currentUser.uid;
     },
-    fetchUserData: function () {
+    fetchUserData: function() {
       database
         .collection("users")
         .doc(this.UID)
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.username = doc.data().username;
           this.industry = doc.data().industry;
           this.recommendedCourses = doc.data().recommendedcourses;
@@ -202,17 +201,17 @@ export default {
           this.fetchIndustryData();
         });
     },
-    fetchIndustryData: function () {
+    fetchIndustryData: function() {
       database
         .collection("industries")
         .where("Name", "==", this.industry)
         .get()
-        .then((querySnapShot) => {
-          querySnapShot.forEach((doc) => {
+        .then(querySnapShot => {
+          querySnapShot.forEach(doc => {
             this.industryDescription = doc.data().Description;
           });
         });
-    },
+    }
   },
 
   created() {
@@ -226,7 +225,7 @@ export default {
       });*/
     this.getUID();
     this.fetchUserData();
-  },
+  }
 };
 </script>
 
