@@ -218,9 +218,7 @@ export default {
       this.$store.commit("changeLifestage", this.lifestage);
     }
   },
-  created() {
-    
-  },
+  created() {},
   data() {
     return {
       lifestage: null,

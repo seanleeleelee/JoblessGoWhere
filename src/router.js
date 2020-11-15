@@ -1,8 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Index from "./views/Index.vue";
 import Landing from "./views/Landing.vue";
-import Login from "./views/Login.vue";
+// import Login from "./views/Login.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import SignUp from "./views/SignUp.vue";
 import LoginPage from "./views/LoginPage.vue";
@@ -30,15 +29,6 @@ let router = new Router({
       }
     },
     {
-      path: "/index",
-      name: "index",
-      components: { default: Index, header: AccountsNavbar },
-      props: {
-        header: { colorOnScroll: 400 },
-        footer: { backgroundColor: "black" }
-      }
-    },
-    {
       path: "/SignUp",
       name: "SignUp",
       components: { default: SignUp, header: QuizLoginHeader },
@@ -54,14 +44,6 @@ let router = new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
-      }
-    },
-    {
-      path: "/login",
-      name: "login",
-      components: { default: Login, header: QuizLoginHeader },
-      props: {
-        header: { colorOnScroll: 400 }
       }
     },
     {

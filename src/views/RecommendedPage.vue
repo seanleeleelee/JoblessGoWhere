@@ -18,10 +18,7 @@
                       <div class="finalCourse1">
                         <md-card class="md-card-plain" md-with-hover>
                           <div class="md-layout-item md-size-100 mx-auto">
-                            <img
-                              :src="this.imageURL1"
-                              class="img-raised rounded"
-                            />
+                            <img :src="this.imageURL1" class="card-image" />
                           </div>
 
                           <md-card-content>
@@ -29,8 +26,17 @@
                               {{ this.finalCourses[0].Name }}
                             </h3>
                             <h6>
-                              {{ this.finalCourses[0].Platform }} |
-                              {{ this.finalCourses[0].Difficulty }}
+                              {{
+                                this.finalCourses[0].Platform
+                                  ? this.finalCourses[0].Platform
+                                  : generateCoursePlatform()
+                              }}
+                              |
+                              {{
+                                this.finalCourses[0].Difficulty
+                                  ? this.finalCourses[0].Difficulty
+                                  : generateCourseDifficulty()
+                              }}
                             </h6>
                             <p>
                               Completed by <b>{{ generateNumber() }}%</b> of
@@ -49,10 +55,7 @@
                       <div class="finalCourse2">
                         <md-card class="md-card-plain" md-with-hover>
                           <div class="md-layout-item md-size-100 mx-auto">
-                            <img
-                              :src="this.imageURL2"
-                              class="img-raised rounded "
-                            />
+                            <img :src="this.imageURL2" class="card-image " />
                           </div>
 
                           <md-card-content>
@@ -60,8 +63,17 @@
                               {{ this.finalCourses[1].Name }}
                             </h3>
                             <h6>
-                              {{ this.finalCourses[1].Platform }} |
-                              {{ this.finalCourses[1].Difficulty }}
+                              {{
+                                this.finalCourses[1].Platform
+                                  ? this.finalCourses[1].Platform
+                                  : generateCoursePlatform()
+                              }}
+                              |
+                              {{
+                                this.finalCourses[1].Difficulty
+                                  ? this.finalCourses[1].Difficulty
+                                  : generateCourseDifficulty()
+                              }}
                             </h6>
                             <p>
                               Completed by <b>{{ generateNumber() }}%</b> of
@@ -83,7 +95,7 @@
                             <img
                               :src="this.imageURL3"
                               alt="Thumbnail Image"
-                              class="img-raised rounded img-fluid"
+                              class="card-image img-fluid"
                             />
                           </div>
                           <md-card-content>
@@ -91,8 +103,17 @@
                               {{ this.finalCourses[2].Name }}
                             </h3>
                             <h6>
-                              {{ this.finalCourses[2].Platform }} |
-                              {{ this.finalCourses[2].Difficulty }}
+                              {{
+                                this.finalCourses[2].Platform
+                                  ? this.finalCourses[2].Platform
+                                  : generateCoursePlatform()
+                              }}
+                              |
+                              {{
+                                this.finalCourses[2].Difficulty
+                                  ? this.finalCourses[2].Difficulty
+                                  : generateCourseDifficulty()
+                              }}
                             </h6>
                             <p>
                               Completed by <b>{{ generateNumber() }}%</b> of
@@ -127,7 +148,7 @@ export default {
     header: {
       type: String,
       default: require("@/assets/img/city-profile.jpg")
-    },
+    }
   },
   computed: {
     headerStyle() {
@@ -156,15 +177,25 @@ export default {
     };
   },
   methods: {
+    generateCoursePlatform: function() {
+      const platforms = ["edX", "Coursera"];
+      const random = Math.floor(Math.random() * platforms.length);
+      return platforms[random];
+    },
+    generateCourseDifficulty: function() {
+      const diff = ["Advanced", "Beginner", "Intermediate"];
+      const random = Math.floor(Math.random() * diff.length);
+      return diff[random];
+    },
     generateNumber: function() {
       return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
     },
-    getRandom: function(arr, n) {
+    getSample: function(arr, n) {
       var result = new Array(n),
         len = arr.length,
         taken = new Array(len);
       if (n > len)
-        throw new RangeError("getRandom: more elements taken than available");
+        throw new RangeError("getSample: more elements taken than available");
       while (n--) {
         var x = Math.floor(Math.random() * len);
         result[n] = arr[x in taken ? taken[x] : x];
@@ -194,8 +225,7 @@ export default {
             querySnapShot.forEach(doc => {
               this.recommendedCourses.push(doc.data());
             });
-          })
-          
+          });
       }
     },
     sleep(ms) {
@@ -212,22 +242,6 @@ export default {
     openURL3() {
       window.open(courseLink3, "_blank");
     },
-    getDelayedData() {
-      // Create a new Promise and resolve after 1 seconds
-      var myTimerPromise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          // callback function for timer, gets called after the time-delay
-          // Your timer is done now. Print a line for debugging and resolve myTimerPromise
-          
-          resolve();
-        }, 1000); // This promise will be resolved in 1 second
-      });
-
-      // Fetch data now, within Promise.all()
-      Promise.all([myTimerPromise, this.fetchRecommended()]).then(() => {
-        
-      });
-    },
     filterRecommended() {
       //remove user completed courses from the total recommendedCourses
       // if there were less than 3 recommendedCourses returned
@@ -242,7 +256,7 @@ export default {
       if (this.recommendedCourses.length < 3) {
         this.finalCourses = this.$store.state.user.defaultCourses;
       } else {
-        this.finalCourses = this.getRandom(this.recommendedCourses, 3);
+        this.finalCourses = this.getSample(this.recommendedCourses, 3);
       }
       this.hasFinalCourses = true;
       this.$store.commit("addFinalCourses", this.finalCourses);
@@ -271,11 +285,8 @@ export default {
       await this.fetchRecommended();
       this.filterRecommended();
     }
-    // await this.fetchRecommended()
-    // this.filterRecommended()
     this.updateImageURL();
     this.updateCourseLink();
-    
   }
 };
 </script>
@@ -288,5 +299,25 @@ export default {
 
 .md-has-textarea + .md-layout {
   margin-top: 20px;
+}
+
+.card-image {
+  /* center horizontally overflown image */
+  // position: absolute;
+  // left: -9999px;
+  // right: -9999px;
+  margin: auto;
+  width: 220px;
+  height: 220px;
+  min-width: 100%;
+}
+
+.md-card-plain {
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    background-color: white;
+  }
 }
 </style>
