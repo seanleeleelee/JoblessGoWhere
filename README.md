@@ -4,7 +4,7 @@ With the current state of the economy, it has been difficult for people to find 
 
 JoblessGoWhere is a website for job seekers who are looking to upgrade their skill sets. It aims to provide users with the most relevant resources for their job search. This can be in the form of online courses from edX or Coursera, or in-person training programmes provided by SGUnited Skills programme.
 
-Users would answer a series of questions about their career aspirations and an algorithm would recommend a personalized collection of learning resources. JoblessGoWhere also shows market trends for different industries which will help user make more informed choices if they are thinking of switching industries. Our goal is to reduce frictional unemployment by improving the quality of job seekers in the workforce. Users to upgrade themselves by providing a centralized platform for them to see all courses about a specific subject. Hopefully, this would help users increase their employability in a shorter period.
+Users would answer a series of questions about their career aspirations and an algorithm would recommend a personalized collection of learning resources. JoblessGoWhere also shows market trends for different industries which will help user make more informed choices if they are thinking of switching industries. Our goal is to reduce frictional unemployment by improving the quality of job seekers in the workforce. Users can upgrade themselves by using JoblessGoWhere to see courses that are the most relevant to their needs on a centralized platform. Hopefully, this would help Singaporeans increase their employability in a shorter period.
 
 ## Table of Contents
 
