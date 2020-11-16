@@ -30,7 +30,7 @@
               <h2 class="title text-center">Times are tough...</h2>
               <h4 class="description">
                 There are many resources and courses available on various
-                platforms like SkillsFuture and Coursera. Despite the plethora
+                platforms like SkillsFuture and Coursera. Due to the plethora
                 of choices, it's hard to tell which courses have the most impact
                 on your career progression.
               </h4>
